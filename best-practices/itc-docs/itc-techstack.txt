@@ -1,0 +1,27 @@
+Api Zuul gateway
+Eureka server
+Centralised configuration 
+Ribbon load balancer
+Nginx
+
+Spring Boot
+Micro Services 
+Rest Api
+Kafka
+zookeeper
+
+Mysql 
+MongoDb
+Cassendra
+Neo4j
+Redis
+
+Angular5
+Angular Material
+Html 
+Css
+Bootstrap
+
+npm /yarn
+
+

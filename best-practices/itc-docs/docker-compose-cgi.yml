@@ -1,0 +1,93 @@
+version: '2.1'
+
+services:
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 27017:27017
+    volumes:
+      - $HOME/mongo/data:/data/db
+    healthcheck:
+      test: "exit 0"
+
+  sql:
+    image: mysql
+    restart: always
+    network_mode: "host"
+    entrypoint: ['/entrypoint.sh', '--default-authentication-plugin=mysql_native_password']
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: UserDB
+   # volumes:
+    #  - $PWD/sql/data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: "exit 0"
+
+
+  angular-app:
+    build: service-folder/
+    depends_on:
+      config-server:
+        condition: service_healthy
+      eureka-service:
+        condition: service_healthy
+    restart: always
+    image: frontend-app
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 4200:4200
+    healthcheck:
+      test: "exit 0"
+
+  user-search-service:
+    build: service-folder/
+    depends_on:
+      config-server:
+        condition: service_healthy
+      eureka-service:
+        condition: service_healthy
+    restart: always
+    image: demo-search
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8091:8091
+    healthcheck:
+      test: "exit 0"
+
+  nginx-server:
+    build: service-folder/
+    image: demo-nginx
+    ports:
+      - 80:80
+    network_mode: "host"
+    restart: always
+    healthcheck:
+      test: "exit 0"
+
+	grafana:
+		ports:
+			- "3000:3000"
+		user: "472"
+		links:
+			- prometheus
+		image: demo-grafana
+		healthcheck:
+			test: "exit 0"
+		
+	prometheus:
+		ports:
+			- "9090:9090"
+		command:
+			- '--config.file=/etc/prometheus/prometheus.yml'
+		image: demo-prometheus
+		healthcheck:
+			test: "exit 0"
+

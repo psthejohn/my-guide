@@ -1,0 +1,53 @@
+Pub modelling
+
+---------------------------------------------------
+Entities:
+    customer
+        -pay
+        -order
+    Server
+        -serveOrder
+    Bartender
+        -makeOrder
+    Manager
+        -billings
+    Chef
+        -cooksFoods
+
+Note:   
+BeerBootle is also an entity but we can have multiple same bottles , but no two customer can be same .
+
+So we have to understand the difference between these two. remember both are entities
+
+----------------------------------------------------
+
+From now onward we will not write main methods  , we will build libraries and use testcases to test their behaviour
+
++++++++++++++++++++++++++++++++
+
+Modelling Recipe :
+
+Pojo:
+    Recipe
+        -ingredients
+        -quantity(teaspoon/cup/etc)
+
++++++++++++++++++++++++++++++++
+
+CabBooking Modelling:
+
+Pojo:
+    -Route
+    -Cab
+    -Driver
+    -Customer
+    -Booking
+    -Payment
+
+
+BookingManager
+    -Customer
+    -Driver
+    
+    -new Booking(customer, driver, from , to)
+    -saveBooking()

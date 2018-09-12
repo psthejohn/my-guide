@@ -1,0 +1,18 @@
+link : http://tryregex.com/
+
+bio: some file name against we have to match.
+match: method with which we are going to match the certain String condition
+
+eg:
+    bio.match(/juggernaut/);
+
+Note: whatever String we have to match will go inside / /  , as it tells that here our regex starts
+
+another ways to match are :
+    /juggernaut/.exec(bio)
+    and
+    /juggernaut/.test(bio)
+
+.replace() method of a string to replace a bit of a string with another string:
+    bio.replace(/juggernaut/, '[ashu]')
+

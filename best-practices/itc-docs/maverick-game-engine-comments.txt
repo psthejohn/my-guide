@@ -1,0 +1,296 @@
+maverick game engine:
+
+Maverick is a game-based learning engine that supports both single player and multiplayer games. 
+Minerva is designed to be highly modular and evolvable to seamlessly integrate newer game formats and also upgrade existing game formats.
+
+Maverick is designed on an asynchrous event-based architecture where different parts of the system communicates by passing messasges.
+
+Maverick has four primary parts: Question Generator, Game Manager, Game Enginbe, and Recommendation Engine.
+
+Question Generator: Maverick supports both manual and automatic question generations. 
+In the manual generator, a Domain Expert can compose questions under a topic.
+In the auto generator, a Domain Export specifies a topic, and the system automatically generates questions under the topic. 
+The Question Generator has been designed to be completely independent of the system and carries no dependencies with the other parts of the system. This allows the Question Generator to be reused across any systems that require its capabilities.  
+
+
+Game Manager: Cordinates game creation. Game Creators can create different games based on the supported game types. For example, for the "Single Player Timed-based Game Type", there can be games with varying levels, scores, and marks.
+
+Game Engine: Provides the runtime for executing a game. Game Engines are designed to evolve as independent services. Each Game Type has its own Game Engine. Adding a new game to the system involves just plugging in the Game Engine and adding the Game Type to the Game Manager.
+
+Recommendation Engine. For ultimate user Experience, the Recommendation Engine of the system comes with capabilities to provide accurate recomendations to users. Users are provided a game feed on their landing page with recommendations, such as the last game she played, trending games, and games under the categories of her interest.
+
+Currently Maverick supports three type of Games:
+
+"Single Player Timed-based Game Type": User will be provided a random set of questions of varying levels that needs to be completed within a predefined time. For optimum user experience, this game type is played on the client side. As a result, when a user plays this game, the game is loaded on the browser and executed until the user finishes or stops playing the game.
+
+"Multi Player Fastest-Finger-Fast Game Type": When a User plays this game, the system performs a Player-To-Game matching. This matching problem is implemented by an independent Matching service. Once a matching is comple, the game starts. In this game type, maintaining the question answering time accurately and without network dependecies is of outmost importance. In the system, this calculation is done on the client side - calculated from the time the question appears on screen to the time the user clicks. The engine is responsible for maintaining the leader board of the game.
+
+
+"Adaptive Game": This game is fully adaptive and is intelligent enough to provide questions based on the user's knowledge on a topic. The game intelligently ensures that users keep on returning to the game by providing questions that efficiently challenges the user. The game automatically keeps gathering more intelligence as users keeps on playing the game. The intelligence of this game is supported by a backend graph.
+
+
+
+
+<==============================================>
+
+
+Aishwarya:
+
+Please use this
+Good Afternoon Everyone!
+I welcome all of you to the Graduation ceremony of our MetaWave, Let me introduce you all with our team members: ---
+Let me give you all a brief introduction about our product----
+Our Product's name is Maverick, which is a platform for game based learning. 
+Before getting into the details of its core functionalities. I would like to describe why we have made this product, and what problems are we trying to solve through our product.
+
+Although there are many applications in the market, but we are aiming to solve major challenges mentioned above to make users glued to our application.
+One of the major challenge which we are trying to solve is making learning more interesting/fun-based and at the same time more engaging for audience.
+Another bigger challenge is in terms of making user keep returning back to our application.
+Our product maverick can be across different domains, for eg.
+1.    In an organisation, the HR department can use Maverick can play a role in recruitment cycle to assess candidates on their knowledge of a domain.    
+2.    Organisations can use Maverick to train their employees.
+3.    Educational institutions and even parents can use Maverick to make children learn. For example, about any upcoming event such as. FWC or any latest world affair.
+4.    Even you as an individual can use Maverick to learn more about any topic you are interested in or you want to newly learn. Example Artificial Intelligence, Investments in Mutual Funds, and so on
+In all of these scenarios Maverick can be seamlessly integrated into the existing infrastructure, or used as a standalone system.
+Maverick can support different types of games, but currently we have made available three types:
+1. Single Player Timer Based Game -- a short description<<Please write>>
+2. Multi Player Fastest Finger First Based -- a short description<<Please write>>
+3. Single Player Adaptive Game-- a short description<<Please write>>
+
+At any time, if you need to provide support for a new game, you only need to plug in a Game Engine, and it will ready for play.
+
+<========================================================>
+
+Fazeel:
+
+
+Reporting Service
+Hello everybody, I Fazeel wants to present the Reporting Service of Maverick. The reporting service keeps track of the games a user played in Maverick. A user can search his play history to get reports of the games he played, on how he played a particular game, what mistakes he made, his opponents, and lots more.
+The reports produced by the reporting service is accessible to users from the User Profile view.
+Reporting Service gets the data from 3 different engines and saves them in to its mongo database via Kafka Messaging Bus, when the user wants to view his latest activity, a rest call is made which gets all the data from mongo and displays it in the user profile.
+<<Demonstrate Reporting Service>>
+
+
+For Technology Stack, please share the slide
+
+<========================================================>
+
+Ajay::
+
+Good Afternoon Everyone,
+I would like to present the Multi Player Fastest Finger Fast game of Maverick. As its name suggest, multiple players can play this game at a time. When the game starts, all the players are presented one question. The player who answered fastest would either gain or lose points based on whether she answered it correctly or not. This continues for all the questions in the game and a leader board maintains the positions of the players. Once the game is over, the final leader board is published, and the winner declared.
+We had to consider several design aspects while designing this game.
+The first one is related to the matching problem. Few questions are:
+How are users matched with a game? 
+When should the system consider that a matching is complete before starting the game? 
+What happens when no matching happens? Should the waiting players be allowed to continue or should the game be abandoned?
+For all these aspects, we designed a separate matching service independent from the multiplayer game engine. We went for a separate matching service so that we could reuse the service in other use cases if required latter in this or some other external system. Also, we understand that the matching algorithm will keep changing. Therefore we didn’t want the changes to impact the game engine.
+Our matching engine is configurable with the number of users to match before starting a game. The matching engine waits for a pre-configured time for a match to happen. Currently, if not match is found, the game is discarded. In the future release, we will add the capability of starting a game with bots if a match is not found within the stipulated time.
+Another challenge was how to calculate the fastest finger player?  One approach was to calculate the time when the question was sent by the engine and when a response is received, and then subtract the former from the latter. However, these opens up several inconsistencies as it is dependent on network communications. Imagine a user over a 2G connection competing with a user with a 4G connection. To counter such issues, the game performs the fastest finger time calculation on the client side, and returns the calculated time to the backend service. Now, irrespective of the network being used, all players het an even chance to win the game.
+Let me call XYZ show an entire end to end demo of starting a fastest finger fast game from scratch.
+    
+    Challenges faced while developing
+    -Timer problem
+    -Socket Connection for multi Players.
+    -Displaying data on front-end.
+
+
+<=========================================================>
+
+
+pushpindar and fazeel ::
+
+Reporting Service
+
+
+Hello everybody, I Fazeel wants to present the Reporting Service of Maverick.
+
+The reporting service keeps track of the games a user played in Maverick.
+
+A user can search his play history to get reports of the
+
+1  games he played
+2 on how he played a particular game
+3 what mistakes he made, his opponents, and lots more.
+
+
+
+The reports produced by the reporting service is stored in a backend Database and accessible to users from the User Profile view.
+
+
+<<Hand over to Singh>>
+
+I am pushpinder singh, and i would like to present User Profile service of Maverick.
+
+One of the plan we have for Maverick is to support Social Networking, where users can follow, make friends, and communicate with other users.
+
+The current User Profile Service is designed keeping in view that plan.
+
+In Maverick, whenever a user register a profile is created for that user. As you can see on the screen, this is the user profile view.
+
+At anytimne, users can complete his or her profile or update existing profile information. All user profile information is store in a backend Mongo database.
+
+In addition, as my friend just menbtioned, User Profile allows a user to view reports of his or her game history.
+
+<<Hand over to Fazeel>>
+
+<<Demonstrate Reporting Service>>
+
+
+<<Hand over to Singh>>
+While implementing the User Profile and Reporting functionalities, we faced few challenges that I would like to mention briefly.
+
+One challenge is to maintaining the state of a user consistently throughout the systems. Because we are using the Microservices architecture there are different representation for a user across different bounded context. For example, the "authentication bounded context" is concerned with the user credentials while the "Reporting bounded context" is concerned with the game history of a user. Also the "User Profile bounded context" is concerned with profile information, such as gender, date of birth, profile pic, and so on.
+
+Keeping all the different User representations consistent was a challenge. We addressed that via message passing through Kafka. Whenever an User property changes in a ser vice, the service emits a message about the change. Other interested services picks it up and updates its User representation accordingly.
+
+This was all about User Profile and Reporting services from our side.
+
+Next, I want to invite Praveen to continue with the presentation.
+
+
+<==========================================================>
+
+To Satyaki and Ajay
+
+
+Good Afternoon Everyone,
+
+
+We would like to present the Multi Player Fastest Finger Fast game of Maverick. Let us recap with a quick Demo.
+
+As you saw, multiple players can play this game at a time. When the game starts, all the players are presented the same question. The player who answered fastest would either gain or lose points based on whether she answered it correctly or not.
+
+This continues for all the questions in the game.
+
+You also saw that a leader board maintains the positions and scores of the players as a game progresses. Once the game is over, the final leader board is published, and the winner declared.
+
+
+
+
+<<Handover to Satyaki>>
+
+We had to consider several design aspects while designing this game.
+
+
+The first one is related to the matching problem.
+
+Few questions are:
+
+
+How are users matched with a game?
+
+When should the system consider that a matching is complete before starting the game?
+
+
+What happens when no matching happens? Should the waiting players be allowed to continue or should the game be abandoned?
+
+
+
+For all these aspects, we designed a separate matching service independent from the multiplayer game engine. We went for a separate matching service so that we could reuse the service in other use cases if required latter in this system or even in some other external system.
+
+Also, we understand that the matching algorithm will keep changing. Therefore we didn’t want the changes to impact the game engine.
+Our matching engine is configurable with the number of users to match before starting a game.
+
+The matching engine waits for a pre-configured time for a match to happen.
+
+Currently, a minimum of two players is required to start a game. In the future release, we will add the capability of starting a game with bots if a match is not found within the stipulated time.
+
+
+
+<<Handover to Ajay>>
+
+
+Another challenge was how to calculate the fastest finger player?  
+
+One approach was to calculate the time based on when the question was sent by the engine and when a response is received.
+
+
+However, these opens up several inconsistencies as it is dependent on network communications.
+
+Imagine a user over a 2G connection competing with a user with a 4G connection.
+
+To counter such issues, the game performs the time calculation on the client side, and returns the calculated time to the backend service.
+
+
+Now, irrespective of the network being used, all players have an even chance to win the game.
+
+<======================================================>
+
+@Jathin
+
+I just demonstrated how to create and manage questions for Minerva.
+
+What I just showed you is a manual process. As we are heading more and more towards automation, what is needed is to automate the entire question generation process.
+
+I would like to proudly say that we have been sucessful in doing that.
+
+Minerva comes with an Auto Question Generator Service that automatically generates questions for games with a single click. In this service we can set a limit on the number of questions to be generated.
+
+Let me demonstrate this.
+
+
+<<Demonstration>>
+
+
+<<Show generated question in UI and backend Mongo>>
+
+As you just saw we generated around 10000 number of questions, and these questions are ready to be used in different games.
+
+Let me now explain what is internally hapenning.
+
+When I clicked the Generate button, the request went to the Question Generator service. The service triggered a SPARQL query against a Wikidata endpoint and retrieves a result set. The service then applies a template to form questions, options, and the correct option.
+
+These autogenerated questions are stored in a Mongo database, and also published to Kafka for other services of the system to use them.
+
+That was all from my side on Question Generator Service. Let me next call upon Sushmita to take the presentation forward.
+
+
+-------------Recommendation Engine----------
+Good Afternoon everyone!! I am Khushboo and I will be explaining the Recommendation Engine Service. 
+For ultimate user Experience, the Recommendation Engine of the system comes with capabilities to provide accurate recommendations to users.
+
+As you can see, Users are provided a game feed on their landing page with recommendations, such as the last game she played, trending games, and games under the categories of her interest.
+For providing such experience, the recommendation engine uses the graph database - Neo4j.
+Let me show how recommendations are served from the backend graph database.
+<<Explain nodes and relationships >>
+As evident, the more user will play in the system, more data would be available in the graph, and the more accurate recommendation will be produced.
+
+<=========================================================>
+
+
+@Khushboo 
+Adaptive
+-------------Recommendation Engine----------
+Good Afternoon everyone!! I am Khushboo and I will be explaining the Recommendation Engine Service. 
+For ultimate user Experience, the Recommendation Engine of the system comes with capabilities to provide accurate recommendations to users. 
+As you can see, Users are provided a game feed on their landing page with recommendations, such as the last game she played, trending games, and games under the categories of her interest.
+For providing such experience, the recommendation engine uses the graph database - Neo4j.
+Let me show how recommendations are served from the backend graph database.
+<<Explain nodes and relationships >>
+As evident, the more user will play in the system, more data would be available in the graph, and the more accurate recommendation will be produced. 
+The recommendation Service database is connected to user manager service, game manager service, question generator service and game engine service through kafka and as an user is registered a node of user is created in database with user's favourite category details, same is applicable for question generator, when it produces a new category , the new node of category is created in database , when a new game is created by game manager service, a new node of game is created with relation with category in which that game and when an user play a game the information from game engine is consume and user-played relationship is created in database. In this way the data is gather in recommendation service to recommend and give user more accurate data based on user played game, games played by most of users, games in his/her favourite category. 
+-------------Adaptive Game----------
+My service name is Adaptive Game Engine Service. 
+The core problem that we had to solve in Minerva is how to make users keep returning to play games.
+A user would keep returning to a game, only if he or she finds the game challenging her at a proper level.
+Let me try explaining it in a different way. 
+Suppose I am a player playing a quiz game on Java. If the game keeps giving me extremely easy questions that I can keep answering correctly, then probably I will lose interest and would never come back again to play the game.
+In the same way, if the game keeps giving me complex questions that I cannot answer, again I probably won’t come back again.
+Show the challenge is, how can the game consistently provide me questions that would keep me interested?  
+For that the game has to intelligently deduce my knowledge on the subject and keep challenging me at the right level. 
+This is exactly what the Adaptive Game Engine of Minerva does.
+The game constantly keeps track of the user’s proficiency on a subject based on how the users played the game in the past and how he is currently playing.
+The great thing about this game engine is that it is self-learning. 
+The game automatically keeps on getting more and more intelligent as more and more users keeps on playing the game. 
+The whole intelligence of this game is supported by a backend Neo4J graph database.
+For the graph database, the engine uses Neo4j.
+When the game engine starts, the adaptive graph loads all questions available in the system. 
+Let me explain quicklu, how we have modelled the adaptive graph ontology.
+As you can see, a topic node have question nodes, and each question node have its options node. Out of this options node, one option will be true and this is established with a true property in the relationship.
+Now whenever a user attempts a question, a relationship is created between the user and the option he attempted.
+Based on this relationship, we can query the graph to find the users proficiency on a topic.
+I have shown you the adaptive graph model. Let me now explain the adaptive algorithm that the system uses.
+As you can see on the screen, for a new user, the game starts by providing three basic questions. If the user answers more than 60% correctly, the algorithm will start serving Intermediate level questions. Else, basic questions would be served till the user reaches the 60% mark.
+The same thing repeats in the intermediate level, and a user needs to reach a 60% before reaching the advance level.
+<<Write more on the algorithm …….>>

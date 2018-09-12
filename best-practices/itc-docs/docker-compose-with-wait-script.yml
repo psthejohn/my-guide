@@ -1,0 +1,54 @@
+#!/usr/bin/env sh
+# Wait for MySQL to be up before starting
+set -e
+host="localhost"
+port="3306"
+#cmd="yarn start"
+>&2 echo "Staring MySQL boot-up sequence in the background ..!"
+/entrypoint.sh mysqld &
+# echo 'Inspecting MySQL ' $host $port
+sleep 20s
+# while [ `telnet $host $port` ]
+# do
+  # >&2 echo "Service is unavailable - sleeping"
+  # sleep 10s
+>&2 echo "MySQL Service is now up, will execute " $cmd
+$cmd
+
+ openjdk8mysql:
+     image: languagepack-openjdk8mysql:1.0.0
+     build: stackroute/openjdk8mysql
+     restart: always
+     volumes:
+       - ./lp_workspaces:/workspaces
+       - ../data:/data
+       - ./scripts:/temp/scripts
+       - ~/.m2/:/maven/home/
+       - ./resourcesToMount/pmd:/pmd
+     environment:
+       QUEUE_NAME: stackroute/openjdk8mysql
+       REDIS_HOST: redis
+       AMQP_URL: 'amqp://rabbitmq'
+       MVN_LOCAL_REPO: /maven/home/
+       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+       MYSQL_ROOT_HOST: 127.0.0.1
+       MYSQL_LP_AC: root
+       MYSQL_LP_ACP: ''
+       MYSQL_HOST: localhost
+       MYSQL_USER: student
+       MYSQL_PASSWORD: student
+       MYSQL_DATABASE: student
+     depends_on:
+       - rabbitmq
+       - redis
+     links:
+       - rabbitmq
+       - redis
+     entrypoint:
+       - /temp/scripts/sleepUntil.sh
+       - "15s"
+       - "yarn boot"
+       
+
+
+

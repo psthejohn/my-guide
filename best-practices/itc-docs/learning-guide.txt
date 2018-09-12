@@ -1,0 +1,11 @@
+
+A game for learning css flexbox:
+    https://flexboxfroggy.com
+A game for learning css grid box:
+    https://cssgridgarden.com
+
+For Data Pipeline Platform, we should use Spring Cloud Data Flow.  Few links to get yourself started.
+    http://www.baeldung.com/spring-cloud-data-flow-stream-processing
+    https://docs.spring.io/spring-cloud-dataflow-samples/docs/current/reference/htmlsingle/
+
+

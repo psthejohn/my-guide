@@ -1,0 +1,23 @@
+The following characters need escaping in regular expressions:
+    $   (   )   *   +   .   ?   [   ^   |   ]
+    if we will not put a escape character they will not be accepted .
+
+To escape them, we use a backslash, 
+    eg
+    this will not work :
+    /what?/ 
+    but this will
+    /what\?/
+
+The dot character has a special meaning in regular expressions: it matches any single character except for new line characters (so /a.c/ would match "abc", "a c", "a$c", etc). 
+
+Exercise:
+    String num="12345";
+    
+    write a regex expression to find a match for 3.5
+
+Sol:
+    num.match(/3.5/)
+    o/p:    ["345"] wrong
+    num.match(/3\.5/)
+    o/p:    null right

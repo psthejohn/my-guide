@@ -1,0 +1,10 @@
+
+Note: when using monetory values , start using BigDecimal in place of Double as some precision loss is there with Double.
+
+Read Must : 
+    Object Modelling
+    Double Vs Float Vs BigDecimal
+    SOLID principles
+    Diff between Bean and pojo 
+    why to use Bean in spring
+    

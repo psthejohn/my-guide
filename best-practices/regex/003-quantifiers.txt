@@ -1,0 +1,13 @@
+"quantifiers" help you to say how many times something should be matched
+
+The first one is the question mark, which makes the previous token in the expression (the previous character or group of characters) optional.
+
+Eg:
+    The expression /regexp?/ will match both "regex" and "regexp", 
+    as the question mark makes the p (but only the p) optional.
+
+Exercise:
+    Write an expression that will match both "frontend" and "front-end", and give it as an argument to the answer() function (eg answer(/your expression/)).
+
+    Sol:
+        (/front-?end/)
