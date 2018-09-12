@@ -1,0 +1,52 @@
+table, th, td {
+    border: 1px solid black;
+}
+
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: rgb(175, 104, 76);
+}
+
+.card.card-cascade {
+    padding:0 5px;
+    border: 1px solid #CCC;
+    border-radius: 2px;
+    margin: 2px;
+    background: #f9f9f9;
+  }
+  .restaurant-cuisine,
+  .restaurant-description,
+  .restaurant-address,
+  .card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

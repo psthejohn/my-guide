@@ -1,0 +1,70 @@
+<div class="container">
+  <p></p>
+  <ul>
+    <li>
+      <a routerLink="/home" id="#homehroute">Home</a>
+    </li>
+    <li>
+      <a routerLink="/search" id="#searchroute">Search</a>
+    </li>
+    <li>
+      <a routerLink="/favourite" id="#favouriteroute">Favourite</a>
+    </li>
+    <li>
+      <a class="active" id="#detailsroute">Details</a>
+    </li>
+  </ul>
+
+
+  <p></p>
+  <p></p>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Details </div>
+    <div class="panel-body">
+      <ul class="cardtable">
+        <div class="card">
+          <img src="{{restaurant.featured_image}}" style="width: 100%;">
+          <div class="containerOld">
+            <h4 class="restaurant-name">
+              <b>{{ restaurant.name }}</b>
+            </h4>
+            <h4 class="restaurant-cuisines">{{ restaurant.cuisines }}</h4>
+            <h5 class="restaurant-address">{{ restaurant.location.address}},{{ restaurant.location.city}}</h5>
+            <h6 class="restaurant-rating">Rating:{{ restaurant.user_rating.aggregate_rating}} </h6>
+            <h6 class="restaurant-vote">Votes:{{ restaurant.user_rating.votes}} </h6>
+            <h6 class="restaurant-COT">Cost For Two:{{ restaurant.average_cost_for_two}}{{ restaurant.currency}}</h6>
+
+            <ul *ngIf='user_reviews && user_reviews.length'>
+              <h4>
+                <b>Reviews</b>
+              </h4>
+              <div *ngIf='my_reviews'>
+                <h4 class="restaurant-description">Your Reviews</h4>
+                <textarea class="form-control addcomments" rows="3" name="#reviewsByMe" id="#reviewsByMe" #reviewsByMe placeholder="{{ my_reviews.review_text}}"></textarea>
+                <p></p>
+                <div><button class="btn btn-primary comment" (click)='editmyReview(reviewsByMe.value)'>Submit Updated Review</button></div>
+              </div>
+              <div *ngIf='!my_reviews'>
+                <h4 class="restaurant-description">Add Review</h4>
+                <textarea class="form-control addcomments" rows="3" name="#reviewsByMe" id="#reviewsByMe" #reviewsByMe placeholder="Your review.."></textarea>
+                <p></p>
+                <div><button class="btn btn-success comment" (click)='editmyReview(reviewsByMe.value)'>Submit Review</button></div>
+              </div>
+              <li *ngFor='let review of user_reviews'>
+                <div>
+                  <div class="container-review">
+                    <h4 class="restaurant-description">{{ review.user.name}}</h4>
+                    <h5 class="restaurant-address">{{ review.review_text}}</h5>
+                    <h6 class="restaurant-rating">Rating:{{ review.rating}} </h6>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

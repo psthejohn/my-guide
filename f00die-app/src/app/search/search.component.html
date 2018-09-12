@@ -1,0 +1,79 @@
+<div class="container">
+  <p>
+  </p>
+  <ul>
+    <li>
+      <a routerLink="/home" id="#homehroute">Home</a>
+    </li>
+    <li>
+      <a routerLink="/search" class="active" id="#searchroute">Search</a>
+    </li>
+    <li>
+      <a routerLink="/favourite" id="#favouriteroute">Favourite</a>
+    </li>
+  </ul>
+
+  <p>
+  </p>
+
+  <div class="panel panel-primary">
+    <div class="panel-body">
+      <label class="hdn search_location" id="label_search_location">Location:</label>
+      <input type="search" id="#location" name="#location" #location placeholder="Please Enter City..">
+
+      <label class="hdn search_cuisine" id="label_search_location">Cuisine:</label>
+      <input type="search" id="#cuisine" name="#cuisine" #cuisine placeholder="Please Enter Cuisine..">
+      <button id="#search-button" name="#search-button" class="btn btn-primary" (click)='searchRestaurants(location.value,cuisine.value)'>search</button>
+
+    </div>
+  </div>
+
+  <p></p>
+  <p></p>
+  <div class='cardtable' *ngIf='restaurantsCuisines && restaurantsCuisines.length'>
+    <div id="#search-result" class="panel panel-primary">
+      <div class="panel-body">
+
+        <ul class="card-deck row">
+          <li *ngFor='let res of restaurantsCuisines' class="col-xs-12 col-sm-6 col-md-4  col-lg-4">
+            <div style="padding:2px">
+              <div class="card card-cascade">
+
+                <div class="view overlay hm-white-slight  waves-light" mdbRippleRadius>
+                  <a (click)='goToRestDetails(resId.value)'>
+                    <img class="img-fluid" src="{{ res.restaurant.featured_image }}" width="100%" height="175px" alt="">
+                  </a>
+                </div>
+
+                <div class="card-body text-center">
+                  <a (click)='goToRestDetails(resId.value)'>
+                    <h4 class="card-title restaurant-name">
+                      <b>{{ res.restaurant.name }}</b>
+                    </h4>
+                    <h4 class="card-text restaurant-description">{{ res.restaurant.cuisines }}</h4>
+                    <h5 class="card-text restaurant-address">{{ res.restaurant.location.address }}</h5>
+                    <h6 class="card-text restaurant-rating">Rating:{{ res.restaurant.user_rating.aggregate_rating}}</h6>
+                    <h6 class="card-text restaurant-vote">Votes:{{ res.restaurant.user_rating.votes}}</h6>
+                    <h6 class="card-text restaurant-COT">Cost For Two:{{ res.restaurant.average_cost_for_two}}{{ res.restaurant.currency}}</h6>
+                  </a>
+                  <input type="hidden" [value]="res.restaurant.id" #resId/>
+                  <p *ngIf="!res.restaurant.fav">
+                    <button class="btn btn-primary favourite" style="width:100%" (click)='addFavourites(resId.value,location.value,cuisine.value)'>Add to Favourites</button>
+                  </p>
+                  <p *ngIf="res.restaurant.fav">
+                    <button class="btn btn-danger unfavourite" style="width:100%" (click)='removeFavourites(resId.value,location.value,cuisine.value)'>Remove From Favourites</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+       
+      </div>
+    </div>
+  </div>
+
+</div>
+<p *ngIf="restaurantsCuisinesError && restaurantsCuisinesError.length">
+  <label class="hdn search_location" id="label_search_location">No Resturants found</label>
+</p>

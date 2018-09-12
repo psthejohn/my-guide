@@ -1,0 +1,25 @@
+1. Clone the repo 
+2. do a build check -> 
+	mvn clean compile package
+3. got to the server folder and do 
+	mvn spring-boot:run     
+to start the back-end application
+    verify : 
+	localhost:8080/
+4. to start the front-end 
+        npm install 
+        ng server 
+   and verify on 
+	localhost:4200/
+
+5 check all functionalities are working or not
+	close the frontend server and	
+		ng e2e
+		ng test
+
+6: if docker-compose file is given
+	simply go to the dir where docker-compose file is present 
+	docker-compose up 
+	and we can access the app on localhost:4200
+
+

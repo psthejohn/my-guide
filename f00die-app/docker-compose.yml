@@ -1,0 +1,32 @@
+version: '2'
+services:
+  foodie-api:
+   image: marutishanbhag/foodie:dockerhub-foodie-api-image
+   container_name: dockerhub-foodie-api-container
+   build: Server/
+   restart: always
+   network_mode: host
+   depends_on:
+     - mysql
+   ports:
+     - 8080:8080
+   expose:
+     - 8080  
+  mysql:
+   image: mysql:5.5
+   container_name: dockerhub-mysql-container
+   restart: always
+   network_mode: host
+   ports:
+     - 3306:3306
+   environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: root
+    MYSQL_PASSWORD: root
+    MYSQL_DATABASE: foodiedb
+  movie-cruiser-app:
+   image: marutishanbhag/foodie:dockerhub-foodie-app-image
+   container_name: dockerhub-foodie-app-container
+   network_mode: host
+   ports:
+     - 4200:4200
