@@ -1,16 +1,16 @@
-# Foodie_App
+# f00die-app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 The Middleware API has been built using Apache CXF JaxRs Implematation on Spring Boot.It uses Zomato API to get the realtime resturant details.
 
 ## Development server
-  -  Start Foodie APP API
+  -  Start f00die APP API
     In Windows command prompt navigate to /Server and Run `mvn spring-boot:run`, API services would be available @ http://localhost:8080/api/
     
   -  Swagger Documentation
-    Swagger Documentation about the Foodie APP Api would be available @ http://localhost:8080/api/api-docs?url=/api/swagger.json#/
+    Swagger Documentation about the f00die APP Api would be available @ http://localhost:8080/api/api-docs?url=/api/swagger.json#/
 
-  -  Start Foodie APP SPA UI
+  -  Start f00die APP SPA UI
     Run `ng serve` for a dev server. Navigate to http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
