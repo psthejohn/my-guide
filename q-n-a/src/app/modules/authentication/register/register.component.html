@@ -1,0 +1,59 @@
+<form class="register-form" name="form" #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && onSubmit()" [style.fontsize.px]="20">
+  <div class="register-block">
+    <div class="row">
+      <h3> Register User </h3>
+    </div>
+    
+    
+    <div class="row">
+      <mat-form-field class="register-input-full-width">
+        <input type = "text" id="firstName" name="firstName"  #firstNameInput="ngModel" 
+        class="first-name" ng-pattern="/^[a-zA-Z\s]*$/" required matInput placeholder="First Name" autocomplete="off"
+        [(ngModel)]="newUser.firstName"[ngClass]="{ 'is-invalid': registerForm.submitted && firstNameInput.invalid }">
+      </mat-form-field>
+      <div *ngIf="registerForm.submitted && firstNameInput.invalid && userId.touched && userId.dirty" class="invalid-feedback">
+        <div *ngIf="firstNameInput.errors.required">First Name is required</div>
+        <div *ngIf="firstNameInput.errors.pattern">First Name should not contain numbers</div>
+      </div>
+      <mat-form-field class="register-input-full-width">
+        <input type = "text" id="lastName" class="last-name" #lastNameInput="ngModel"  required ng-pattern="/^[a-zA-Z\s]*$/"
+         matInput placeholder="Last Name" [(ngModel)]="newUser.lastName" name="lastName" 
+         [ngClass]="{ 'is-invalid': registerForm.submitted && lastNameInput.invalid }" autocomplete="off">
+      </mat-form-field>
+      <div *ngIf="registerForm.submitted && lastNameInput.invalid && userId.touched && userId.dirty" class="invalid-feedback">
+        <div *ngIf="lastNameInput.errors.required">Last Name is required</div>
+        <div *ngIf="lastNameInput.errors.pattern">Last Name should not contain numbers</div>
+      </div>
+      <mat-form-field class="register-input-full-width">
+        <input type = "text" matInput id="userId"  email required class="user-id" matInput 
+        placeholder="User Email Id" [(ngModel)]="newUser.userId" name="userId" #userId="ngModel"
+         autocomplete="off">
+      </mat-form-field>
+      <div *ngIf="registerForm.submitted && userId.invalid && userId.touched && userId.dirty" class="invalid-feedback">
+        <div *ngIf="userId.errors.required">Email Id is required</div>
+        <div *ngIf="!userId.errors.required && userId.errors.email">Email id is invalid</div>
+      </div>
+      <mat-form-field class="register-input-full-width">
+        <input matInput id="password" class="password" required type="password" matInput placeholder="Password" 
+        [(ngModel)]="newUser.password" name="password" #passwordInput="ngModel" 
+        [ngClass]="{ 'is-invalid': registerForm.submitted && passwordInput.invalid }">
+      </mat-form-field>
+      <div *ngIf="registerForm.submitted && passwordInput.invalid && userId.touched && userId.dirty" class="invalid-feedback">
+        <div *ngIf="passwordInput.errors.required">Password is required</div>
+      </div>
+    </div>
+    <div class="row">
+      <table>
+        <tr>
+          <td>
+            <button class="register-user" mat-raised-button color="primary" type="submit">Register User</button>
+          </td>
+          <td>
+            <button class="clear" mat-raised-button color="primary" (click)="resetInput()">Clear</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</form>

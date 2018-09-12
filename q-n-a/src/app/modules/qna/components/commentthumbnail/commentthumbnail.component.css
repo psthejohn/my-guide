@@ -1,0 +1,55 @@
+.comment-page{
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    
+}
+.logout{
+    margin-top: 3vh;
+    margin-left: 90vw;
+    flex-direction: column;
+}
+.question-des{
+    font-size: 2vw;
+    margin-left: 5vw;
+}
+.comment-form{
+    margin-left: 5vw;
+    margin-top: 3vh;
+    width: 82vw;
+    
+}
+.full-width{
+    width: 70vw;
+}
+.submit-button{
+    margin-left: 3vw;
+    width: 7vw;
+}
+.comment-card{
+    width: 80vw;
+    max-height: 20vh;
+    margin-left: 5vw;
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+.comment-description{
+    margin-left: 2vw;
+    font-size: 3vh;
+    text-align: center;
+    
+}
+.comment-date{
+    margin-left: 2vw;
+    font-size: 2vh;
+}
+.delete-card{
+    align-self: flex-end;
+    margin-top: 1vh;
+    margin-right: 2vw;
+    margin-bottom: 5vh;
+}

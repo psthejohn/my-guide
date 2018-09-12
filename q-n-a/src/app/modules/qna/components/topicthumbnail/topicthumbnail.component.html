@@ -1,0 +1,35 @@
+<div class="topic-page">
+  <div class="add-topic-card" >
+    <button mat-stroked-button color="primary" class="logout" (click)="Logout()">Logout</button>
+    <form class="topic-form" >
+      <mat-form-field class="quarter-width">
+        <input class="enter-topic" matInput autocomplete="off" #topicfield topicfield.value='' placeholder="Enter your topic here ...">
+      </mat-form-field>
+      <mat-form-field class="half-width">
+        <input class="add-description" matInput #topicfielddescription topicfielddescription.value='' 
+        placeholder="Enter your description here ...">
+      </mat-form-field>
+      <button mat-button #topicbutton class="submit-button" (click)="addTopicMethod(topicfield.value,topicfielddescription.value)"
+        mat-raised-button color="accent">Add Topic</button>
+
+    </form>
+  </div>
+  <div class="topic-heading">
+    <h2>Topics</h2>
+  </div>
+  <div class="topic-div">
+    <mat-card class="topic-card" *ngFor="let topic of topics">
+      <mat-card-header>
+        <mat-card-title class="topic-name">{{topic?.topicName}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-subtitle class="topic-description">{{topic?.topicDescription}}</mat-card-subtitle>
+
+      <mat-card-actions>
+        <!--<button mat-stroked-button color="accent" class ="view-topic-details"
+     [routerLink]="['/qna/question']">View Topic Details</button>-->
+        <button mat-stroked-button color="accent" class="view-topic-details" (click)="onClick(topic)">View Topic Details</button>
+      </mat-card-actions>
+
+    </mat-card>
+  </div>
+</div>

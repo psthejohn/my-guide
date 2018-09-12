@@ -1,0 +1,60 @@
+.question-page{
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+.logout{
+    margin-top: 3vh;
+    margin-left: 90vw;
+    flex-direction: column;
+}
+.question-des{
+    margin-left: 40vw;
+    font-size: 3vw;
+}
+.question-form{
+    margin-top: 3vh;
+    margin-left: 5vw;
+    width: 82vw;
+}
+.full-width{
+    width: 70vw;
+}
+.submit-button{
+    margin-left: 3vw;
+    width: 7vw;
+}
+.question-card{
+    width: 80vw;
+    max-height: 20vh;
+    margin-left: 5vw;
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+.question-header{
+    margin-left: 0vw;
+}
+.question-description{
+    margin-left: 2vw;
+    font-size: 3vh;
+    text-align: center;
+}
+.question-date{
+    margin-left: 2vw;
+    font-size: 2vh;
+}
+.delete-card{
+    align-self: flex-end;
+    margin-right: 2vw;
+    margin-bottom: 5vh;
+}
+.delete-question{
+    margin:auto;
+}
+.view-comments{
+    margin: auto;
+}

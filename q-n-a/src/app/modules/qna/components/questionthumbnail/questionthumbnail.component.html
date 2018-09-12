@@ -1,0 +1,30 @@
+<div class="question-page">
+    <button mat-stroked-button color="primary" class="logout" (click)="Logout()">Logout</button>
+  <div class="question-des">
+    <h4>{{topicName}}</h4>
+  </div>
+  <div>
+    <form class="question-form">
+      <mat-form-field class="full-width">
+        <input class = "question-input" matInput autocomplete="off" #questionfield questionfield.value='' 
+        placeholder="Ask your question here ...">
+      </mat-form-field>
+      <button mat-button #questionbutton class="submit-button" (click)="addQuestionMethod(questionfield.value)" mat-raised-button
+        color="accent">Submit</button>
+    </form>
+  </div>
+
+  <mat-card class="question-card" *ngFor="let question of questions">
+    <mat-card-header class="question-header">
+      <mat-card-title class="question-description">{{question?.questionDescription}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-subtitle class="question-date">{{question?.questionDate | date:'fullDate'}}</mat-card-subtitle>
+
+    <mat-card-actions class="delete-card">
+
+      <button mat-raised-button color="warn" class="delete-question" (click)="deleteQuestionMethod(question)">Delete Question</button>
+      <!-- <button mat-raised-button color="primary" class ="view-comments" [routerLink]="['/qna/comment']">View Comments</button>-->
+      <button mat-raised-button color="primary" class="view-comments" (click)="onClick(question)">View Comments</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

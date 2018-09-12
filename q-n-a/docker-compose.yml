@@ -1,0 +1,40 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.5
+    ports:
+      - "3306:3306"
+    container_name: mysql-docker
+    network_mode: host
+    environment:
+      MYSQL_USER: app_root
+      MYSQL_DATABASE: qnadb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+  qna-app:
+    image: kumaran25m/qnaapp:qna-spring-image
+    restart: always
+    network_mode: host
+    depends_on:
+      - mysql
+    expose:
+      - 8082
+    ports:
+      - 8082:8082
+  auth-app:
+    image: kumaran25m/qnaapp:qna-auth-image
+    restart: always
+    network_mode: host
+    depends_on:
+      - mysql
+    expose:
+      - 8089
+    ports:
+      - 8089:8089
+  qna-angular:
+    image: kumaran25m/qnaapp:qna-angular-image
+    network_mode: host
+    container_name: angular-qna-docker
+    ports:
+      - 8080:8080
+

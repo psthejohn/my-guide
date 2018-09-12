@@ -1,0 +1,23 @@
+<div class="comment-page">
+  <button mat-stroked-button color="primary" class="logout" (click)="Logout()">Logout</button>
+  <div class="question-des">
+    <h4>{{questionDescription}}</h4>
+  </div>
+  <form class="comment-form">
+    <mat-form-field class="full-width">
+      <input matInput class="comment-input" autocomplete="off" #commentfield commentfield.value='' placeholder="Enter your comment here ...">
+    </mat-form-field>
+    <button class="submit-button" #commentbutton (click)=addCommentMethod(commentfield.value) mat-raised-button color="accent">Submit</button>
+  </form>
+
+  <mat-card class="comment-card" *ngFor="let comment of comments">
+    <mat-card-header class="comment-description">
+      <mat-card-title>{{comment?.commentDescription}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-subtitle class="comment-date">{{comment?.commentedDate | date:'fullDate'}}</mat-card-subtitle>
+
+    <mat-card-actions class="delete-card">
+      <button mat-flat-button color="warn" class="delete-comment" (click)=deleteCommentMethod(comment)>Delete Comment</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
