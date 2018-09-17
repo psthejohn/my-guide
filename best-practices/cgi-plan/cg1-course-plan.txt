@@ -4,59 +4,54 @@ Anatomy of a Java Progarm
     Conditional Statements and Loops
     Arrays
     Refactoring Code into Reusable Methods
-
-understanding the java Language
-java technology phenomenon
-java Language Basics
-writing object oriented programs using java
-lifecycle of objects
-classes
+    understanding the java Language
+    java technology phenomenon
+    java Language Basics
+    writing object oriented programs using java
+    lifecycle of objects
+    classes
 
 Java Coding Conventions:
     http://www.oracle.com/technetwork/java/codeconventions-150003.pdf
 
-
-Java Types
-Interface vs Abstract Class
-Top level and nested classes
-Anonymous Inner Class
-Local Inner Class
-Static Nested Class
-Java Packages
-Package and Import Statements
-Static Imports
-Access Control violations
-OOPs (Encapsulation,
-Inheritance,
-Polymerphisim)
-Java Encapsulation
-Inheritance
-Method Overriding
-Method Overloading
+    Java Types
+    Interface vs Abstract Class
+    Top level and nested classes
+    Anonymous Inner Class
+    Local Inner Class
+    Static Nested Class
+    Java Packages
+    Package and Import Statements
+    Static Imports
+    Access Control violations
+    OOPs (Encapsulation,
+    Inheritance,
+    Polymerphisim)
+    Java Encapsulation
+    Inheritance
+    Method Overriding
+    Method Overloading
 
 Object Modelling pdf in this folder
 
-
-"Common Java Classes"
-Object
-Wrapper Classes
-Date and Time
-
-"File I/O"
-Serialization and deserialization
-Byte stream and Character stream
-Character stream classes
-InputStream and OutputStream classes
-BufferedInputStream and BufferedOutputStream
-Chaining of I/O systems
-DataInput and DataOutput interfaces"
-"Exception Handling"
-try, catch, and finally
-try with resources
-throw vs throws
-Exception propagation
-try with resources
-
+    "Common Java Classes"
+    Object
+    Wrapper Classes
+    Date and Time
+    "File I/O"
+    Serialization and deserialization
+    Byte stream and Character stream
+    Character stream classes
+    InputStream and OutputStream classes
+    BufferedInputStream and BufferedOutputStream
+    Chaining of I/O systems
+    DataInput and DataOutput interfaces"
+    "Exception Handling"
+    try, catch, and finally
+    try with resources
+    throw vs throws
+    Exception propagation
+    try with resources
 
 Solid Pronciple:
     https://howtodoinjava.com/best-practices/5-class-design-principles-solid-in-java/
