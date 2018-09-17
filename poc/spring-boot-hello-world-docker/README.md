@@ -1,6 +1,6 @@
 Description:
     A simple spring boot Hello World running in a docker with a simple endpoint that return "Hi Service is up now".
-    
+
 Things must be installed in your system for running this appliccation:
     java
     maven

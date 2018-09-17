@@ -6,7 +6,7 @@
 /out-tsc
 
 # dependencies
-/node_modules
+node_modules
 
 # IDEs and editors
 /.idea
@@ -33,7 +33,12 @@
 npm-debug.log
 testem.log
 /typings
-.mvn/*
+.mvn
+mvn
+mvnw
+mvnw.*
+bin
+.bin
 
 # e2e
 /e2e/*.js
