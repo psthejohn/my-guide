@@ -17,6 +17,7 @@ public class WebSocketController {
         this.template = template;
     }
 
+    // endpoint for acccepting the messages coming from frontend and will send them back to topic "/chat"
     @MessageMapping("/message")
     public void onReceiveMessage(String message) throws Exception {
         System.out.println("data incoming is " + message);
