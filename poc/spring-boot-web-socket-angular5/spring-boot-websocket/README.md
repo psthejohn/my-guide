@@ -12,3 +12,4 @@ add the websocket dependency first
 and then 
 `mvn spring-boot:run`
 
+https://medium.com/oril/spring-boot-websockets-angular-5-f2f4b1c14cee
