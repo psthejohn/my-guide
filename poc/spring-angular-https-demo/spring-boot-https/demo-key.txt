@@ -1,0 +1,31 @@
+Keystore type: PKCS12
+Keystore provider: SunJSSE
+
+Your keystore contains 1 entry
+
+Alias name: tomcat
+Creation date: Oct 5, 2018
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: CN=admin, OU=admin, O=stackroute, L=bangalore, ST=karnataka, C=91
+Issuer: CN=admin, OU=admin, O=stackroute, L=bangalore, ST=karnataka, C=91
+Serial number: 7ed6b45e
+Valid from: Fri Oct 05 09:33:33 IST 2018 until: Mon Oct 02 09:33:33 IST 2028
+Certificate fingerprints:
+	 MD5:  DD:A9:E4:D2:55:A3:8D:07:FD:58:7F:DE:07:3A:EE:B0
+	 SHA1: 9C:29:93:16:17:69:30:55:52:D2:5C:6B:18:F5:B5:5D:D1:BF:2E:15
+	 SHA256: 84:FD:7E:6A:AF:57:EC:71:8F:0E:9D:30:D6:B0:22:0C:A5:03:05:1B:F2:E6:D2:81:5D:E9:5C:96:66:6C:91:FC
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 3
+
+Extensions: 
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: A6 BE 41 EF 71 EF 1A 94   39 1A 48 0D EE 4A 4E B6  ..A.q...9.H..JN.
+0010: 59 C9 89 FD                                        Y...
+]
+]
