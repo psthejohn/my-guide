@@ -1,0 +1,10 @@
+Routing (parameters)
+Http
+http vs https
+Data prefetch (prior to component loading)
+Promise vs Observable
+Injection hierarchy
+
+
+
+
