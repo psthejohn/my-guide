@@ -1,5 +1,8 @@
 package com.learning.javapractice.testing;
 
-public class Test2 {
+public class Test1 {
+
+	public Test1() {
+	}
 
 }

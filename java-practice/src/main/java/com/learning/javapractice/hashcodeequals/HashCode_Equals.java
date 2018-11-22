@@ -1,18 +1,18 @@
-package com.learning.javapractice.testing;
+package com.learning.javapractice.hashcodeequals;
 
-public class Test {
+public class HashCode_Equals {
 	int id;
 	String name;
 
-	public Test(int id, String n) {
+	public HashCode_Equals(int id, String n) {
 		this.id = id;
 		this.name = n;
 	}
 
 	public static void main(String[] args) {
-		Test t1 = new Test(1, "abc");
-		Test t2 = new Test(1, "");
-		Test t3 = new Test(2, "");
+		HashCode_Equals t1 = new HashCode_Equals(1, "abc");
+		HashCode_Equals t2 = new HashCode_Equals(1, "");
+		HashCode_Equals t3 = new HashCode_Equals(2, "");
 
 		// System.out.println(t1.equals(t2));
 		System.out.println("t1 hashcode is " + t1.hashCode());
@@ -30,7 +30,7 @@ public class Test {
 		if (this.getClass() == o.getClass()) {
 			return true;
 		}
-		Test t = (Test) o;
+		HashcodeEquals t = (HashcodeEquals) o;
 		return id == t.id && name.equals(t.name);
 	}
 
@@ -42,5 +42,4 @@ public class Test {
 		hash = 31 * hash + (name == null ? 0 : name.hashCode());
 		return hash;
 	}
-
 }

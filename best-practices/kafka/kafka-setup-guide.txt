@@ -75,8 +75,20 @@ https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-
 
     The [Service] section specifies that systemd should use the kafka-server-start.sh and kafka-server-stop.sh shell files for starting and stopping the service. It also specifies that Kafka should be restarted automatically if it exits abnormally.
 
+    If the zookeeper port is in use , kill the port with:
+	sudo kill -9 $(sudo lsof -t -i:2181)
+
+    Start Zookeeper :
+	sudo kafka/bin/zookeeper-server-start.sh kafka/config/zookeeper.properties 
+
     Now that the units have been defined, start Kafka with the following command:
-        sudo systemctl start kafka
+	sudo kafka/bin/kafka-server-start.sh kafka/config/server.properties 
+		or        
+	sudo systemctl start kafka
+    if the kafak is stopping bcz cant lock on kafka/logs , delete the folder
+	sudo rm -rf /tmp/kafka-logs
+    if still not starting saying address already in use then kill the port by :
+	sudo kill -9 $(sudo lsof -t -i:9092)
     
     To ensure that the server has started successfully, check the journal logs for the kafka unit:
         journalctl -u kafka
@@ -102,6 +114,12 @@ https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-
 
         ~/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic TutorialTopic
 
+    list all topics:
+	kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+    delete a topic:
+	
+
     You can create a producer from the command line using the kafka-console-producer.sh script. It expects the Kafka server's hostname, port, and a topic name as arguments.
 
     Publish the string "Hello, World" to the TutorialTopic topic by typing:
@@ -123,3 +141,98 @@ https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-
 
     When you are done testing, press CTRL+C to stop the consumer script. Now that we have tested the installation, let's move on to installing KafkaT.
 
+
+   Install KafkaT (Optional):
+	KafkaT is a tool from Airbnb that makes it easier for you to view details about your Kafka cluster and perform certain administrative tasks from the command line
+
+	sudo apt install ruby ruby-dev build-essential
+	sudo gem install kafkat
+	Create a new file called .kafkatcfg:
+		nano ~/.kafkatcfg
+	Add the following lines to specify the required information about your Kafka server and Zookeeper instance:
+	
+		{
+		  "kafka_path": "~kafka",
+		  "log_path": "/tmp/kafka-logs",
+		  "zk_path": "localhost:2181"
+		}
+
+
+// sample comsumer code for remote kafka:
+
+package com.stackroute.springbootkafkaconsumer.config;
+
+
+import com.stackroute.springbootkafkaconsumer.model.User;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.common.serialization.ByteArrayDeserializer;
+import org.apache.kafka.common.serialization.BytesDeserializer;
+import org.apache.kafka.common.serialization.StringDeserializer;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.annotation.EnableKafka;
+import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
+import org.springframework.kafka.core.ConsumerFactory;
+import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.support.converter.BytesJsonMessageConverter;
+import org.springframework.kafka.support.converter.StringJsonMessageConverter;
+import org.springframework.kafka.support.serializer.JsonDeserializer;
+
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+
+@EnableKafka
+@Configuration
+public class KafkaConfiguration {
+
+   @Bean
+   public ConsumerFactory<String, String> consumerFactory() {
+
+       Map<String, Object> config =new HashMap<>();
+
+       config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+       config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id1");
+       config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+       config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class);
+
+       return new DefaultKafkaConsumerFactory<>(config);
+
+   }
+
+   @Bean
+   public ConcurrentKafkaListenerContainerFactory<String,String> kafkaListenerContainerFactory() {
+       ConcurrentKafkaListenerContainerFactory<String,String> factory=new ConcurrentKafkaListenerContainerFactory();
+       factory.setConsumerFactory(consumerFactory());
+       return factory;
+   }
+
+   @Bean
+   public ConsumerFactory<String, User> userConsumerFactory() {
+
+       Map<String, Object> config =new HashMap<>();
+
+       config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+       config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id2");
+       config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+//        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+       config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, BytesDeserializer.class);
+
+       return new DefaultKafkaConsumerFactory<>(config);
+   }
+
+   @Bean
+   public StringJsonMessageConverter jsonConverter() {
+       return new StringJsonMessageConverter();
+   }
+   @Bean
+   public ConcurrentKafkaListenerContainerFactory<String,User> userKafkaListenerFactory() {
+       ConcurrentKafkaListenerContainerFactory<String,User> factory=new ConcurrentKafkaListenerContainerFactory<String,User>();
+       factory.setConsumerFactory(userConsumerFactory());
+       factory.setMessageConverter(new StringJsonMessageConverter());
+       return factory;
+   }
+}

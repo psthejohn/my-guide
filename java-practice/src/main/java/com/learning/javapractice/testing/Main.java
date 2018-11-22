@@ -1,5 +1,5 @@
 package com.learning.javapractice.testing;
 
-public class Test2 {
+public class Main {
 
 }
