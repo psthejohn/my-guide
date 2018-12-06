@@ -27,11 +27,11 @@ public class HashcodeEquals {
 		if (!(obj instanceof HashcodeEquals)) {
 			return false;
 		}
-		
+
 		if (obj == null || obj.getClass() != this.getClass()) {
 			return false;
 		}
-		
+
 		HashcodeEquals heq = (HashcodeEquals) obj;
 		// comparing the state of argument with
 		// the state of 'this' Object.
@@ -49,4 +49,10 @@ public class HashcodeEquals {
 		// it depends on how we implement hashCode() method.
 		return this.id;
 	}
+
+	@Override
+	public String toString() {
+		return "HashcodeEquals [name=" + name + ", id=" + id + "]";
+	}
+
 }
