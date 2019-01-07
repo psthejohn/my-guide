@@ -1,0 +1,84 @@
+1.    Create a program that accepts a list of user names and stores it . The program should also allow searching for a user based on user name and should return either true or false, based on whether or not the user is present.
+2.    Implement a music playlist program. This program should allow users to create tracks and playlists. Users should be allowed to add and remove tracks to and from playlists.
+3.    Create a program to implement a shopping cart. A user should be able to add, remove items from the shopping cart.
+4.   Consider the scenario where a courier boy needs to deliver parcels to user based on the address of the user. Create a program to model this.
+5.   Consider the scenario of an auditorium that hosts shows. Create a program that can host a show, say Standup comedy in the auditoriam and allow users to block seats in sections, such as stage front, premium, regular.
+
+
+Please attempt the following: (NOT related to SOLID, but basic object design and data flow)
+
+Consider the scenario of an online grocery store, such as Big Basket. In order to deliver booked items, the store uses vehicles of different types, such as Truck, mini truck, Tempo Traveller, and so on. Orders are shipped in containers, of size small, medium, and large mounted in vehicles. Model the program to allow a store manager, to add vehicles, containers, and goods to perform delivery optimally.
+
+Pizzeria is a dine-in restaurant that serves pizzas. Users can book tables in pizzeria by calling up the restaurant manager. Create a program to help the manager to book tables.
+Assume tables can be of different seating capacities. Also, at peak and festival seasons, the manager should have the flexibility to add or remove tables from the restaurant floor.
+
+Model the inventory of an online clothing store that sells clothing items under different categories.
+
+Model an Immersive program where employees of different organizations attend. Mentors of the program are responsible for imparting training in the program.The software in the first release should allow a program coordinator to start a new program, and assign mentors and participants to it.
+
+Create a program where a user hunts for pokemons and adds each caught pokemon to a pokemon ball. For each continuous five pokemon caught, the user has to release one pokemon of the type that the program randomly generates.
+
+
+Create a recommendation system for a video watching application. The application should allow a user to add voideos to a watchlist. Based on user activities, the application should recommend relevant videos to the user to watch.
+
+
+Model a quiz engine, where a user can create quizes based on technologies. For example, there can be quizes, such as Quiz 1 and Quiz 2 for the Java technologies.  A Quiz contains questions, which are MCQ question with four options where one option can be correct. A quiz question can be of basic, intermediate, and advance level and carries marks accordingly.
+
+
+
+
+Please attempt this Challenge - should clear lot's of concepts.
+
+Challenge 1
+The purpose of the application is to help a fictitious company called Bills Burgers to manage their process of selling hamburgers. Our application will help Bill to select types of burgers, some of the additional items (additions) to be added to the burgers and pricing.
+We want to create a base hamburger, but also two other types of hamburgers that are popular ones in Bills store.
+The basic hamburger should have the following items.
+Bread roll type, meat and up to 4 additional additions (things like lettuce, tomato, carrot, etc) that the customer can select to be added to the burger.
+Each one of these items gets charged an additional price so you need some way to track how many items got added and to calculate the final price (base burger with all the additions).
+This burger has a base price and the additions are all separately priced (up to 4 additions, see above).
+Create a Hamburger class to deal with all the above.
+Also create two extra varieties of Hamburgers to cater for
+a) Healthy burger (on a brown rye bread roll), plus two addition items that can be added.
+This means, the healthy burger can have 6 items (Additions) in total.
+b) Deluxe hamburger - comes with chips and drinks as additions, but no extra additions are allowed.
+Hint:  You have to find a way to automatically add these new additions at the time the deluxe burger object is created, and then prevent other additions being made.
+All 3 classes should have a method that can be called anytime to show the base price of the hamburger plus all additional, each showing the addition name, and addition price, and a grand/final total for the burger (base price + all additions)
+
+
+12:
+Consider a cycle stand where we can pick a cycle of our choice. Users can get only one cycle of their choice and they need to pay based on the cycle usage duration. Invoice should be generated at the end of the ride.
+
+Question:-Consider a e-ticket booking system(Bus Ticket).In this system user can entered by giving respective userid and password.After successfull login user can book ticket by entering the speciifc destination.After bookinf user will get a softcopy of the ticket.(Once at a time user can book one ticket)
+Question 2:- Considered a digital library system.In this scenarion this library has different types of ebooks.A specific user can sign-in in this portal and able to search and download the specific books(maximum limit is 2).If user found the desire book,then system returns the book's name,otherwise it will give an error message,that "Entered "Bookname" is not availbale"
+
+
+Scenario 3:- Consider a Mobile-bill generating system.In this case any user can able to make a call to somaone.There is a server and it calculates the total duration of call.There are 2 types of call, (i)Local call (ii) International call. Depends upon the type and time duration server generates a bill and user should get the bill as a message.
+
+Consider a event booking system. In this scenario, any user can book a event venue specifying the type of event (birthday party, anniversary, new year party, official gathering) , no of guests and budget. The event manager will give the venues and menu within the budget. If the budget is above a pre-fixed price, the party decoration is complementary. The user will select a venue and menu he prefers and books the slot by paying an advance. The confirmation bill is given to the user specifying venue and time slot.
+
+Scenario 4:- Consider a Car-parking system in a mall.In this case user can enter into the parking area with their cars.There are two types of vehicles:- (i) 4-wheelers  (ii) 2-wheelers.System takes the car type and checkin time from user at the time of parking,now system calculates the total duration of parking time(i.e time duration between checkin and checkout time).Finally system generates a bill and user will get this in their respective contact.
+** First system checks that the parking zone is free or not.If its free then user can able to enters into the zone otherwise system returns "Sorry! Occupied"
+
+
+SOLID PRINCIPLES TASKS:
+1. Consider the design of the following class, Text that models an editor or editing text and printing text.
+class Text {   
+    String text;   
+    String author;   
+    int length;   
+    String getText() { ... }   
+    void setText(String s) { ... }
+    String getAuthor() { ... }   
+    void setAuthor(String s) { ... }   
+    int getLength() { ... }   
+    void setLength(int k) { ... }   
+    /*methods that change the text*/   
+    void allLettersToUpperCase() { ... }   
+    void findSubTextAndDelete(String s) { ... }   
+    /*method for formatting output*/   
+    void printText() { ... }}
+    
+    2. Give your comments on the design of this class.Consider an insurance system that validates health insurance claims before approving one. Theprocess is as follows:A customer of the company files a claimA health insurance surveyor validates a claimA claim manager either approves or rejects the claim3. Design the system with skeleton code.You are developing a Java application that models a toy builder. Each toy will have a price andcolor. Some toys, such as a toy car or toy train can additionally move, while some toys, such asa toy plane can both move and fly.4. Design the system with skeleton code.
+    
+    Consider the scenario of an electric switch that turns a light bulb on or off. Model therequirement with skeleton code.
+
