@@ -1,0 +1,41 @@
+1. Ensure Travis is set up for CI.
+
+2. Login to
+https://codecov.io/ with your github URL
+
+Note: In CodeCov, no repository activation required. When you push your project, Travis will upload a report and the project activates automatically.
+If you need to view thr code cov report,
+
+https://codecov.io/gh/stackroute/<repo_URL>
+
+
+3 In your project pom.xml, update Java version to 11 .
+
+4. In pom.xml, replace the <build> and <reporting> sections with this.
+https://gist.github.com/ximanta/393e54fd34064c48ec8a505877712ab9
+
+5. Create a .travis.yml in the project root with this.
+
+language: java
+jdk: openjdk11
+cache:
+directories:
+ - "$HOME/.m2/repository"
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+
+
+6. Update README.md with the following badges. Replace <repo_name> with the project repository name and <branch_name> with the repo branch.
+
+[![Build Status](https://travis-ci.org/stackroute/<repo_name>.svg?branch=master)](https://travis-ci.org/stackroute/<repo_name>)
+[![codecov](https://codecov.io/gh/stackroute/<repo_name>/branch/<branch_name>/graph/badge.svg)](https://codecov.io/gh/stackroute/<repo_name>)
+![](https://img.shields.io/codecov/c/github/stackroute/<repo_name>.svg?style=flat)
+
+![](https://img.shields.io/snyk/vulnerabilities/github/stackroute/<repo_name>.svg?style=popout)
+![](https://img.shields.io/github/issues/stackroute/<repo_name>.svg?style=popout)
+
+![](https://img.shields.io/github/contributors/stackroute/<repo_name>.svg?style=popout)
+![](https://img.shields.io/github/last-commit/stackroute/<repo_name>.svg?style=popout)
+
+![](https://img.shields.io/github/repo-size/stackroute/<repo_name>.svg?style=popout)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)

@@ -1,0 +1,10 @@
+Task monitoring
+vehicle tracking using gps
+e-commerce product ratings and reviews
+chatting and secure file sharing plateform
+access/login via Otp
+Automated attendence system
+DashBoard For Stackroute
+Bike/car rental trackers
+Voting appllication for internal use
+
