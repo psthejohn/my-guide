@@ -1,0 +1,9 @@
+
+running docker containers inside a container
+
+    https://www.testcontainers.org/supported_docker_environment/continuous_integration/dind_patterns/
+
+to install nodemon
+   
+    https://github.com/remy/nodemon#nodemon
+
