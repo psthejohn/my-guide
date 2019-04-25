@@ -1,0 +1,8 @@
+ssh key generation:
+ssh-keygen -t rsa -C xyz@gmail.com
+then press enter,enter,enter....
+then change the  directory
+cd .ssh
+ls to see public and private key
+do 
+cat name_of_the_file_with_pub_in_it

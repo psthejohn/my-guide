@@ -1,0 +1,26 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    run: jenkins
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    run: jenkins
+  template:
+    metadata:
+      labels:
+        run: jenkins
+    spec:
+      volumes:
+        -  name: jenkins-home-volume
+           emptyDir: {}
+      containers:
+      - image: jenkins/jenkins:lts-alpine
+        name: jenkins
+        volumeMounts:
+          - mountPath: /var/jenkins_home
+            name: jenkins-home-volume
+  test: false
+  triggers: null

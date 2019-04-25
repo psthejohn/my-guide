@@ -1,0 +1,13 @@
+22 - april - 2019
+
+    immersive meeting for ibm to create the contents of assessment
+    helped fixing user specific socket message sending for ibm wave 4 product 
+
+23 - april - 2019
+
+    spring jdbc and transactions content for the ibm is done
+
+24 - april - 2019
+    
+    completed the final assessment contents of spring web mvc for ibm wave 4
+    completed the performance testing of parallel code executions in docker containers 

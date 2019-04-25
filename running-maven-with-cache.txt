@@ -1,0 +1,40 @@
+limiting the docker core and memory :
+
+Link :
+    https://codefresh.io/docker-tutorial/java_docker_pipeline/
+
+to run a docker container to compile and package the code :
+
+docker run -it  --rm --name demo-maven-test-2 -v "$PWD":/usr/src/app -v "$HOME"/.m2:/root/.m2 -w /usr/src/app maven:3.6.0-jdk-11-slim mvn clean package
+
+check the processor core usage in a docker -container 
+    docker run --rm --cpuset-cpus=0,1 ubuntu sh -c "cat /sys/fs/cgroup/cpuset/cpuset.cpus"
+
+to limit processor and ram usage :
+    docker run -m 512M --cpuset-cpus=0,1 demo-5 sh -c "cat /sys/fs/cgroup/cpuset/cpuset.cpus"
+
+to limit memory and cpu :
+    docker run -m 512M --cpuset-cpus=0,1 demo-5
+
+
+
+===========================================
+
+running in a docker-machine:
+
+
+time -p docker run --rm -v "$HOME"/.m2:/root/.m2 -w /src/app mashup-performance-test-image mvn clean package
+
+eval $(docker-machine env t2.medium)
+
+export TIMES=1
+
+docker-machine create t2.medium --virtualbox-cpu-count 2 --virtualbox-memory 4096
+
+docker-machine rm t2.medium
+ /bin/bash -c ./run.sh
+
+
+touch run.sh
+chmod +x run.sh
+docker-machine create t2.medium --virtualbox-cpu-count 1 --virtualbox-memory 4096

@@ -1,0 +1,20 @@
+we need to run the sonarqube server first in our system.
+  for that we will use the docker image of sonarqube:
+
+      docker pull sonarqube
+
+  add the following plugin in your pom.xml
+
+  <pluginManagement>
+      <plugins>
+          <plugin>
+              <groupId>org.sonarsource.scanner.maven</groupId>
+              <artifactId>sonar-maven-plugin</artifactId>
+              <version>3.6.0.1398</version>
+          </plugin>
+      </plugins>
+  </pluginManagement>
+
+  and finally you have to use below command to verify the code.
+
+  mvn clean verify sonar:sonar

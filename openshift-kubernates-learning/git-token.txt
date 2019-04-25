@@ -1,0 +1,13 @@
+if you are running into git hub api limit execed use this link :
+    https://github.com/tvieira/minishift/commit/705d7525a0cfa265399918467b101aa66ccc5c74
+to set up your own token in spite of using the organisations
+
+git api token for minishift personal use is : 
+    9aeebf68112625a2d7d35b57bcd382ec1a1d7edd
+
+git api token for jenkins X installation uses:
+
+git api token for jenkinsX-minishift:
+    46fcdc56d258b4be95ff7916077f97bc8a4e23f8
+git api token for jenkinsX-minishift local use for ci-cd:
+    7a3950cfa2a17fdccd237fccb2362cf5a0914ded

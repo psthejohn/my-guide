@@ -1,0 +1,84 @@
+everything has changed in last 5 years
+    premise - to - cloud
+    vms - to - containers
+    monolithic - to - micorservices
+    high performance team via ci/cd 
+    
+    kubernates is defacto standerd in scaling and managing all these
+    
+Challenges for new groups
+    setup cloud / kebernates and environments
+    move to containers
+    deploy containers to kubernates
+    adopt ci and cd 
+    automate everything
+    keep delivering actual business to customers
+
+    gitOps is new way of managing all the configurations with their commit history , so if any thing goes wrong just pull back 
+
+and here only the jenkins X help us with in getting rid of all these issues 
+    - automates the installation , configurations and upgrade of jenkins and other apps like help (package manager for kubernates ), skaffold , nexus , monocular
+    -automate ci/cd 
+    - uses gitOps to manage promotions between environments
+            testing- staging - production
+    - lots of feedbacks via commenting on pushes 
+
+How do we setup kubernates with jenkins X
+    
+    install the command line tool : jx
+        https://jenkins-x.io/getting-started/install/
+    follow the steps for the jenkins X installation on ubuntu machine
+        to get help about the available jenkins X commands type in console 
+            jx
+        
+    to install minishift , follow the last section 
+    it will take time have patience
+    
+
+    facing issues in this approach 
+===================================================================
+
+another approach :
+    
+    install first the oracle Virtual Box :
+        sudo apt install virtualbox
+        or follow any other link 
+    
+    install minishift locally first by executing the below commands:
+        download the minishift zipped version :
+            wget https://github.com/minishift/minishift/releases/download/v1.33.0/minishift-1.33.0-linux-amd64.tgz
+        unzip the downloaded files
+            tar xvzf minishift-1.33.0-linux-amd64.tgz
+        go to the directory
+            cd minishift-1.33.0-linux-amd64
+        put the minishift binaries in the path 
+            sudo mv minishift /usr/local/bin
+        set the default virtual box to use the minishift
+            minishift config set --global vm-driver virtualbox
+        start minishift and check its working fine or not
+            minishift start
+        type the below command to allow oc commands
+            eval $(minishift oc-env)  
+        then log in as admin 
+            oc login -u system:admin
+
+    install jenkins-X locally by following the below link (for linux) :
+        https://jenkins-x.io/getting-started/install/ 
+    
+    Note : dont use the ( jx install cluster minishift ) command as we already have minishift installed , in place of this we will start with the 
+        jx install 
+    now just wait it will take at least 2 hrs minimum to install all the things.
+    
+    once all setup is done , we will start with a project creation 
+        create a spring boot basic project with this command: 
+            jx create spring -d web -d actuator
+        it will prompt for some info, feed it and then it will create the repo in your 
+            home/USERNAME/NAMEOFTHEPROJECT
+
+======================================================
+
+fixing the ci cd hook issue:
+    main url :
+        http://hook-jx.192.168.99.100.nip.io/hook
+    changed to :
+        http://hook-jx.89353e94.ngrok.io/hook   

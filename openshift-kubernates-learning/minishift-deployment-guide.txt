@@ -1,0 +1,182 @@
+to start minishift locally :
+
+    minishift start 
+
+to check status of minishift :
+    
+    minishift status
+
+oc :
+
+    oc is the openshift client which enables us to connect to the cluster, its an extension of the kubectl
+
+    type the below command to verify the oc :
+        oc get pods 
+            o/p: oc : command not found 
+
+        type on console
+            minishift oc-env 
+        o/p:
+            export PATH="/home/ashutosh/.minishift/cache/oc/v3.11.0/linux:$PATH"
+            # Run this command to configure your shell:
+            # eval $(minishift oc-env)  
+        we have to execute the export PATH in order of oc to work
+        but in place of that we can also do
+            eval $(minishift oc-env)
+        and oc commands will run now 
+
+if you are not logged in into the openshift console:
+    oc login -u developer
+    oc login -u system:admin
+
+to check to which account we have logged in :
+    oc whoami
+
+===============================================
+
+lets run our first project 
+
+======================
+
+    we will run the jenkins image here
+
+        oc run --image=jenkins/jenkins:lts-alpine jenkins
+    
+    oc get pods 
+        it will give u brief info regarding the pods
+    oc describe pods 
+        will give u the detail info , check the in last event section 
+    to check the details of a specific container/pod
+        oc describe pods/jenkins-1-92g8q 
+
+    to check the logs of a pod:
+        oc logs pods/nameofthecontainer
+
+    so by checking the logs we get to know that the permission rights are missing 
+    so in spite of using the oc if we will use kubectl this same command to run the jenkins pod will run 
+
+================================================
+
+    How do we create volumes in openshift:
+
+        oc api-resources 
+            gives u the list of all the resources that we can create in openshift
+        we need to create the persistant volumes to do the volume mappings
+        
+        to get all the pods that we have created in order to delete it :
+            oc get deploymentconfig
+        now we will delete it by the command :
+            oc delete deploymentconfig/jenkins
+        
+        to clean the complete workspace project 
+            oc delete all --all -n myproject
+
+    to create the deployment descriptor for the pods run the below command:
+        oc run --image=jenkins/jenkins:lts-alpine jenkins --dry-run
+    it will just dry run the jenkins , means it will not deploy but only create the deployment descriptor . yml 
+
+    to get the yaml format of the deployment descriptor 
+        oc run --image=jenkins/jenkins:lts-alpine jenkins --dry-run -o yaml
+    
+    to write the yaml file in some other file : 
+        oc run --image=jenkins/jenkins:lts-alpine jenkins --dry-run -o yaml >> jenkins-deployment.yaml
+
+    to create the instance / pod
+        oc create -f jenkins-deployment.yaml
+
+    now do again
+        oc get pods 
+    we can see that the pod is up and running without any error
+
+    now to access the running pod:
+        bad news we can not access.
+
+Diff between deployment config and service:
+    with deployment config we can say we need 5-10 instances of following pod and it will provide us the same
+
+    with services we can create an internal route to these pods, 
+    without a service we can not connect to a pod.
+
+    to create /expose a service
+        oc expose deploymentconfig/jenkins --port 8080
+        but it will not expose the service , so we can not access it 
+    or we can use also which will expose the service  
+        oc expose deploymentconfig/jenkins --type NodePort --port 8080
+    
+    to see all running services :
+        oc get services
+
+    to delete the service:
+        oc delete services/jenkins
+
+    to connect to the services we need the minishift ip 
+        minishift ip
+    
+    NAME      TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+    jenkins   NodePort   172.30.73.164   <none>        8080:31770/TCP   8s
+    
+    now type in browser 
+        ur minishift ip/31770 
+    to access the service
+
+    NOTE: with this mechanism we can not access the service outside the cluster as we are using the NodePort
+
+    but if we want to expose this service over the inernet then 
+    we will have to create another resource called route (assume as api gateway) in the same yaml file.
+         oc expose deploymentconfig/jenkins --type NodePort --port 8080 --dry-run -o yaml >> jenkins-deployment.yaml 
+    
+    with this we will get the updated yaml file .
+
+    now delete all the configs we have :
+        oc delete all --all -n myproject
+    then rerun the yaml file :
+        oc create -f jenkins-deployment.yaml
+    it will create both the pod and the services
+
+    now the last thing we need to do is to create the route
+        oc create route edge jenkins --service=jenkins
+    check if the route is created :
+        oc get routes
+    now with the host name we can access this service over the network 
+
+    quickly lets put this route information in our deployment config:
+        oc create route edge jenkins --service=jenkins --dry-run -o yaml >> jenkins-deployment.yaml 
+    
+    delete all in myproject by 
+        oc delete all --all -n myproject 
+    and then create all by 
+        oc create -f jenkins-deployment.yaml
+        
+========================================================
+
+how to push your local docker images to openshift:
+
+    steps:
+        connect to the docker daemon running inside the openshift itself .
+        
+        from docker daemon inside the openshift , we have to login in to the docker registry and 
+        push it there.
+
+        command to connect to minishift docker
+            eval $(minishift docker-env)
+        test :
+            docker images;
+        you can see now the docker commands working in it.
+
+    Now copy any code in this dir and start building the docker-compose 
+    once done verify with docker images to check if the images are there or not 
+
+    once done , we have to push this image to the docker registry.
+    and in order to do so , we have to login to the docker registry.
+    
+    get the registry url by typing :
+        minishift openshift registry
+            o/p:    172.30.1.1:5000
+        so we have got the registry url 
+    we need the username and password for login to the registry :
+        username is developer and password we need to generate
+        to generate the password type 
+            oc whoami -t
+                o/p :   qiKhS5GdHbRo0NTQkuDumuuge-8RMamqpahLEadxYWM
+
+

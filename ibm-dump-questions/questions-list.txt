@@ -1,0 +1,2124 @@
+links for jdbc :
+    https://www.baeldung.com/spring-jdbc-jdbctemplate
+    https://www.journaldev.com/2593/spring-jdbc-example
+
+video link for hands on :
+    https://www.youtube.com/watch?v=0LYqy0wvS20
+
+
+1. What are the following things we don't need to perform in Spring JDBC Template?
+a. We need to write a lot of code before and after executing the query,such as creating
+connection,statement, ,closing resultset,connection etc.
+b. need to perform exception handling on the database logic.
+c. Need to handle transaction
+d. All of the Above.
+Ans:a
+
+2 Spring _________ is a powerful mechanism to connect to the database and execute
+SQL queries.
+a. JDBC Template
+b. IOC Container
+c. Spring MVC
+d. Spring AOP
+Ans:a
+
+3 The Spring JDBC template converts the standard JDBC SQLException into ............
+a. Runtime Exceptions.
+b.ClassNotFoundException
+c.CompiletimeExceptions
+d. Vendor Specific error Messages.
+Ans:a
+
+4 In Spring JDBC Template queryForList() returns..........
+a. List of HashMaps.
+b. POJO Class object.
+c. Integer
+d. String
+Ans:a
+
+5 public int update(String query) is used for ..........
+a. insert
+b. update
+c. delete
+d. All of the above.
+Ans:d
+
+6 Spring framework provide ............class for configuring DataSource in bean
+configuration file.
+a. DriverManagerDataSource
+b. DriverManagerSourceFile
+c. DataSource
+d. DataSourceDriverManager
+Ans:a
+
+7 Spring JDBC Template handles the exception and provides the informative
+exception messages by the help of excepion classes defined
+a. org.springframework.dao package.
+b. org.springframework.dao.exception
+c. org.springframework.exception
+d. org.springframework.jdbc.exception
+Ans:a
+
+8 We implement ............. interface to override the statement creation task.
+a. PreparedStatement
+b. PreparedStatementCreator
+c. PreparedCreator
+d. None of the mentioned
+Ans:b
+
+9 Class which declares a number of overloaded update() template methods to control
+the overall update process.
+a. org.springframework.jdbc.core.JdbcTemplate
+b. org.springframework.jdbc.core.*
+c. org.springframework.jdbc.*
+d. none of the mentioned
+Ans:a
+
+10 The JdbcTemplate class offers template method for batch update operations.
+a. batchUpdate()
+b. update()
+c. all of the mentioned
+d. none of the mentioned
+Ans:c
+
+11 Class which declares a number of overloaded update() template methods to control
+the overall update process.
+a. org.springframework.jdbc.core.JdbcTemplate
+b. org.springframework.jdbc.core.*
+c. org.springframework.jdbc.*
+d. none of the mentioned
+Ans:a
+
+12 The JdbcTemplate class offers template method for batch update operations.
+a. batchUpdate()
+b. update()
+c. all of the mentioned
+d. none of the mentioned
+Ans:c
+
+13 The JdbcTemplate class declares a number of overloaded query() template
+methods to control the overall query process.
+a. True
+b. False
+Ans:a
+
+14 SimpleJdbcTemplate offers a convenient batch update method in the form of:-
+a. Vector
+b. Set
+c. Map
+d. List
+Ans:d
+
+15 Method to retrieve the JDBC template​.
+a. setJdbcTemplate()
+b. getTemplate()
+c. getJdbc()
+d. getJdbcTemplate()
+Ans:d
+
+16 The org.springframework.jdbc.core.support.JdbcDaoSupport class has a
+setDataSource() method and a setJdbcTemplate() method.
+a. True
+b. False
+Ans:a
+
+
+17 Method which provides list of maps.
+a. queryForList()
+b. update
+c. query()
+d. all of the mentioned
+Ans:a
+
+18. SimpleJdbcTemplate class wraps the JdbcTemplate class and provides the update
+method where we can pass arbitrary number of arguments​.
+
+a. True
+b. False
+Ans:a
+
+19​ It handles the exception and provides the informative exception messages by the
+help of excepion classes defined in the ​org.springframework.dao​ package.
+a. True
+b. False
+Ans:a
+
+20 Which classes are present in spring JDBC API?
+a. JdbcTemplate
+b. SimpleJdbcTemplate
+c. NamedParameterJdbcTemplate
+d. SimpleJdbcInsert
+e. All of the above
+Ans:e
+
+
+21 Which of the following is advantage of using JDBC connection pool?
+a. Better performance
+b. Using more memory
+c. Using less memory
+d.Slow performance
+Ans:a
+
+22 All the exceptions thrown by the Spring JDBC Framework are subclasses of
+a. ArrayIndexOutofBounds Exception
+b. Null pointer Exception
+c. DataAccessException
+d. FileNotFoundException
+Ans:c
+
+23 What is benefit of using Spring Jdbc
+a. Open the statement
+b. create preparestatement
+c. execute the SQL
+d. All the above
+Ans:d
+
+24 Why should you use JdbcTemplate in Spring ?
+a. The Spring JdbcTemplate converts the standard JDBC SqlExceptions into
+RuntimeExceptions.
+b. The Spring JdbcTemplate allows to clean-up the resources automatically, no need to write
+the extra code.
+c. both a&b
+d. none of the above
+Ans:c
+
+25 If you want to execute multiple queries with a single prepared statement, which
+method of JdbcTemplate should be used
+a. execute()
+b. prepareExecute()
+c. executeAll()
+d. none of the above
+Ans:a
+
+26 What is the functions of Transaction management in spring jdbc
+a. reduces the amount of boiler-plate code in JDBC operations
+b. file uploading
+c. only a
+d. both a&b
+Ans:d
+
+27 The Spring JDBC Template has the following advantage compared with standard
+JDBC.
+a. Spring JDBC template converts the vendor specific error messages into better
+understandable error messages.
+b. The Spring JDBC template offers several ways to query the database
+c. The Spring JDBC template allows to clean-up the resources automatically, e.g. release
+the database connections.
+d. All the above
+Ans:d
+
+28 We don’t need to create CallableStatement when using SimpleJdbcCall class
+a. True
+b. False
+Ans:a
+
+29 In Spring JDBC development, you can use _______and _______ classes to simplify
+the overall database operation processes.
+a. jdbc,jdbcDao
+b. JdbcTemplate ,JdbcDaoSupport
+c. dbcTemplate,jdbc
+d. none of the above
+Ans:b
+
+30 Class which declares a number of overloaded update() template methods to
+control the overall update process.
+a. org.springframework.jdbc.core.JdbcTemplate
+b. org.springframework.jdbc.core.*
+c. org.springframework.jdbc.*
+d. none of the mentioned
+Ans:a
+
+31 Class which declares a number of overloaded update() template methods to control
+the overall update process.
+a. org.springframework.jdbc.core.JdbcTemplate
+b. org.springframework.jdbc.core.*
+c. org.springframework.jdbc.*
+d. none of the mentioned
+Ans:a
+
+32 It is better to implement the PreparedStatementCreator interface and other callback
+interfaces as inner classes if they are used within one method only.
+a. True
+b. False
+Ans:a
+
+33 The JdbcTemplate class offers template method for batch update operations.
+a. batchUpdate()
+b. update()
+c. all of the mentioned
+d. none of the mentioned
+Ans:c
+
+34 The JdbcTemplate class declares a number of overloaded query() template
+methods to control the overall query process.
+a. True
+b. False
+Ans:a
+
+35 RowCallbackHandler’s purpose is to map a single row of the result set to a
+customized object.
+a. True
+b. False
+Ans:b
+
+	 	 	 	
+36 Method of RowMapper interface in which, you have to construct the object that
+represents a row and return it as the method’s return value.
+a. mapRow()
+b. query()
+c. update()
+d. none of the mentioned
+ans:A
+
+37 RowMapper implementation which can automatically map a row to a new instance
+of the specified class.
+a. BeanPropertyRowMapper
+b. BeanPropertyRow
+c. All of the mentioned
+d. None of the mentioned
+Ans:a
+
+38 Method which provides list of maps.
+a. queryForList()
+b. update
+c. query()
+d. all of the mentioned
+Ans:a
+
+39 The org.springframework.jdbc.core.support.JdbcDaoSupport class has a
+setDataSource() method and a setJdbcTemplate() method.
+a. True
+b. False
+ans:a
+
+40 Method to retrieve the JDBC template.
+a. setJdbcTemplate()
+b. getTemplate()
+c. getJdbc()
+d. getJdbcTemplate()
+Ans:d
+
+41 Which is the only method in ResultSetExtractor Interface?
+a. resultSet(Result Set rs)
+b. extractResultSet(ResultSet rs)
+c. extractData(ResultSet rs)
+d. none of the above
+Ans:c
+
+42 ResultSetExtractor is a ------------?
+a. class
+b. interface
+c. Abstract class
+d. none of the above.
+Ans:b
+
+43 What we return using ResultSetExtractor
+a. row
+b. result set
+c. list
+d. none of above
+Ans:c
+
+44 Which Spring class use for result set parsing and merging rows int osingle object?
+a. RowMapper
+b. ResultSetExtractor
+c. ResultSetMapper
+d. RowCallbackHandler
+Ans:b
+
+45 Which method of JDBCTemplate class take the instance of ResultSetExtractor?
+a. query()
+b. execute()
+c. update()
+d. All of the above.
+Ans:a
+
+46 extractData() method of ResultSetExtrator throws which Exception?
+a. NullPointerException
+b. DataAccessException
+c. both a & b
+d. none of the above
+Ans:b
+
+47 ResultSetExtractor is available in which package?
+a. import org.springframework.jdbc.core.JdbcTemplate
+b. import org.springframework.jdbc.core.ResultSetExtractor
+c. import org.springframework.dao.ResultSetExtractor
+d. None of the above.
+Ans:b
+
+48 Spring framework offers a consistent data access exception-handling mechanism
+for its data access module.
+a. True
+b. false
+Ans:a
+
+49 The direct parent class of DataAccessException is:
+a. RunTimeException
+b. NestedRuntimeException
+c. Exception
+d. Throwable
+Ans:b
+
+50 Which concrete exception in the DataAccessException hierarchy should be
+thrown?
+a. errorCode
+b. SQL State properties of the caught SQLException
+c. All of the mentioned
+d. None of the mentioned
+Ans:c
+
+51 Method of RowMapper interface in which, you have to construct the object that
+represents a row and return it as the method’s return value.
+a. mapRow()
+b. query()
+c. update()
+d. none of the mentioned
+Ans:a
+
+52 RowCallbackHandler purpose is to map a single row of the result set to a
+customized object.
+a. True
+b. False
+Ans:b
+
+53 RowMapper implementation which can automatically map a row to a new instance
+of the specified class.
+a. BeanPropertyRowMapper
+b. BeanPropertyRow
+c. All of the mentioned
+d. None of the mentioned
+Ans:a
+
+54 Which class is used to map a database row to a java object in spring?
+a. ResultSetExctractor
+b. ResultMapper
+c. RowMapper
+d. RowExctractor
+Ans:c
+
+55 Which of the following interface contains mapRow() method?
+a. ResultSetExctrator
+b. RowMapper
+c. ResultMapper
+d. RowExctractor
+Ans:b
+
+56 Which class does the query method belongs to ?
+a. RowMapper
+b. ResultSetExctrator
+c. ResultSetDataSource
+d. DataSourceManager
+Ans:a
+
+57 mapRow() belongs to which of the following
+a. ResultSetExctrator
+b. RowMapper
+c. ResultMapper
+d. RowExctractor
+Ans:b
+
+58 Which method belongs to NamedParameterJdbcTemplate class?
+a. query()
+b. execute()
+c. showAll()
+d. display()
+Ans:b
+
+59 Which of the following queries is update() not capable of handling ?
+a. select
+b. insert
+c. update
+d. delete
+Ans:a
+
+60 What is the function of RowMapper in spring JDBC?
+a. mapping each row to Result object
+b. processing whole rows at the same time
+c. mapping each columns
+d. proccesing whole columns at the same time
+Ans:a
+
+61 ________________method executes a query and returns a result object.
+a. query()
+b. queryForObject()
+c. Both a and b
+d. None of the above
+Ans:a
+
+62​ Class which declares a number of overloaded update() template methods to
+control the overall update process.
+a. org.springframework.jdbc.core.JdbcTemplate
+b. org.springframework.jdbc.core.*
+c. org.springframework.jdbc.*
+d. none of the mentioned
+Ans:a
+
+63 The return type of the queryForObject() method will be determined by the class
+argument.
+a. True
+b. False
+Ans:a
+
+64 Update() method is used for _______________ operations.
+a. insert
+b. delete
+c. update
+d. All of the above
+Ans:d
+
+65 Select the correct one from below:
+a. String query = SELECT * FROM EMPLOYEES WHERE EMP_ID=? ;
+b. String query = “SELECT * FROM EMPLOYEES WHERE EMP_ID=?”
+c. String query = “SELECT * FROM EMPLOYEES WHERE EMP_ID=?” ;
+d. String query = “SELECT * FROM EMPLOYEES WHERE EMP_ID=3”;
+Ans:c
+
+66 Which method is used for getting the details from database and in returning in
+result object
+a. jdbcTemplate.queryForObject(query,new​ RowMapperData(),bookId);
+b. jdbcTemplate.queryForObject(query,new​ BookResultsetExtractor(),bookId);
+c. either a or b
+d. both
+Ans:c
+
+67 Select one query for inserting the values()
+a. String query = “UPDATE INTO BOOK VALUES (? ,?,?,?)”;
+b. String query = “INSERT INTO BOOK VALUES (? ,?,?,?)”;
+c. only b
+d. only a
+Ans:b
+
+68 What should be passed in update method in order to define the parameterized
+query
+a. query
+b. parameter values
+c. parameter
+d. None of the above
+Ans:b
+
+69 _____________method is used for insert, update and delete operations.
+a. insert()
+b. update()
+c. delete()
+d. All of the above
+Ans:b
+
+70 To get the count of any variable or table which one is used
+a. count
+b. *
+c. count(*)
+d. count
+Ans:c
+
+1.ResultSet is Updatable by default(true or false)
+A) true
+B) false
+ANS) false
+
+2.Which isolation level prevents only dirty read in JDBC, connection class.
+A) TRANSACTION_READ_UNCOMMITTED
+B) TRANSACTION_READ_ COMMITTED
+C) TRANSACTION_SERIALIZABLE
+D) TRANSACTION_REPEATABLE_READ
+A) A
+B) B
+C) C
+D) D
+ANS) B
+
+3.Which of the following is correct about rs.absolute(5) ,
+where rs is a reference of ResultSet?
+A) Move cursor to fifth row from the end of the resultset
+B) Move cursor to the fifth row
+C) Move cursor to the sixth row
+D) runtime error
+ANS) Move cursor to the fifth row
+
+4.Re arrange the steps in a correct order to execute a ResultSet?
+A. Processing the ResultSet
+B. Connecting to database
+C. Executing the SQL Query
+D. Registering the driver
+A) C--->B--->D---->A
+B) C--->A--->B---->A
+C) D--->B--->C---->A
+D) B--->D--->C---->A
+ANS) D--->B--->C---->A
+
+5.For executing a sql query multiple times, PreparedStatement provides better performance than
+Statement object?
+A) true
+B) false
+ANS) true
+
+6.Which Statement method allows us to execute dynamic sql queries, and returns boolean value.
+A. executeUpdate();
+B. executeQuery();
+C. execute();
+A) A
+B) B
+C) C
+ANS) C
+
+7.Determine output
+public class JDBCDemo {
+public static void main(String[] args) {
+String sql = "select * from employee";
+try{
+Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection con =
+DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","HR","HR");
+Statement st = con.createStatement();
+ResultSet rs = st.executeQuery(sql);
+while(rs.next()){
+System.out.println(rs.getInt(0));
+}
+}
+catch(ClassNotFoundException |SQLException e){
+System.out.println(e.getMessage());
+}
+}
+}
+A) null
+B) No Data Found
+C) Compilation fails
+D) Invalid column index
+ANS) Invalid column index
+
+8.Which Exceptions should be replaced by ? for the code to compile?
+class Test{
+public static void main(String args[]) throws {
+try{
+Class.forName("oracle.jdbc.OracleDriver");
+Connection con = DriverManager.getConnection(
+"jdbc:oracle:oci8:@/localhost:1521/XE", "hr", "hr");
+}
+
+catch(? e){ }
+catch(? e){ }
+}
+}
+A) ClassNotFoundException,SQLException
+B) ClassCastException,SQLException
+C) Exception,SQLException
+D) ClassCastException,ClassNotFoundException
+ANS) ClassNotFoundException,SQLException
+
+
+9.What happens if you call the method close() on a ResultSet object?
+[A] the method close() does not exist for a ResultSet. Only Connections can be closed.
+[B] the database and JDBC resources are released
+[C] you will get a SQLException, because only Statement objects can close ResultSets
+[D] the ResultSet, together with the Statement which created it and the Connection from which the
+Statement was retrieved, will be closed and release all database and JDBC resources
+
+A) A
+B) B
+C) C
+D) D
+ANS) B
+
+
+10.Which of the following Interface provides method for finding the maximum number of connections
+that a specific driver can obtain?
+A. Database
+B. Connection
+C. DatabaseMetaData
+D. ResultSetMetaData
+A) A
+B) B
+C) C
+D) D
+ANS) C
+
+
+11.How can you execute a stored procedure in the database?
+A) Call method execute() on a CallableStatement object
+B) Call method executeProcedure() on a Statement object
+C) Call method execute() on a StoredProcedure object
+D) Call method run() on a ProcedureCommand object
+ANS) Call method execute() on a CallableStatement object
+
+
+12.Which type of Statement can execute parameterized queries?
+A) PreparedStatement
+B) ParameterizedStatement
+C) ParameterizedStatement and CallableStatement
+D) All kinds of Statements
+ANS) PreparedStatement
+
+
+13.DriverManager.getConnection(____________)?
+Fill up the blank.
+A) getConnection(String url)
+B) getConnection(String url, Properties info)
+C) getConnection(String url, String user, String password)
+D) All of the above mentioned
+ANS) All of the above mentioned
+
+14.setAutoCommit(boolean autoCommit) is method of ___________ Interface
+A) ResultSet
+B) Connection
+C) Statement
+D) HttpSession
+ANS) Connection
+
+15.Which result set generally does not show changes to the underlying database that are made while
+it is open. The membership, order, and column values of rows are typically fixed when the result
+set is created?
+A) TYPE_FORWARD_ONLY
+B) TYPE_SCROLL_INSENSITIVE
+C) TYPE_SCROLL_SENSITIVE
+D) ALL MENTIONED ABOVE
+ANS) TYPE_SCROLL_INSENSITIVE
+
+16.Which type of ResultSet can be navigated in both directions and will reflect the changes made to
+the underlying data in the Database?
+A) TYPE_FORWARD_ONLY
+B) TYPE_SCROLL_INSENSITIVE
+C) TYPE_SCROLL_SENSITIVE
+D) ALL MENTIONED ABOVE
+ANS) TYPE_SCROLL_SENSITIVE
+
+17.If conn is the Connection Object, What will happen if the following line of code gets executed:
+conn.setAutoCommit(false);
+A) SQL statement is treated as a transaction and is automatically committed
+B) SQL statement is treated as a transaction and manually needs to be committed
+C) both a & b
+D) none of the above
+ANS) SQL statement is treated as a transaction and manually needs to be committed
+
+18.AutoCommit, rollback,Savepoint all this methods belong to _____________________
+A) DriverManager
+B) Connection Interface
+C) Statement
+D) ResultSet
+ANS) Connection Interface
+
+19.Which method of ResultSet can be used to jump to the third row in the database"
+A) rs.next(3)
+B) rs.moveTo(3)
+C) rs.getXXX(3)
+D) rs.absolute(3)
+E) none of the above
+ANS) rs.absolute(3)
+
+19.How to get Warning from Statement?
+A) getWarnings()
+B) getWarningsFromStatement()
+C) getNextWarning()
+D) None of the above mentioned
+ANS) getWarnings()
+
+
+
+
+20.Choose the incorrect option for Singleton pattern
+A) Provide a default Private constructor.
+B) Define a static Private object instance.
+C) The client should be independent of how the products are created
+D) Make the access method synchronized to prevent Thread problems.
+E) Override the object clone method to prevent cloning.
+A) A
+B) B
+C) C
+D) D
+E) E
+ANS) C
+
+
+21.Choose the incorrect statement about SingleThreadModel.
+A. It is used to ensure that servlet can handle only one request at a time.
+B. It is a marker interface
+C. It solves all the thread-safety issues
+A) A
+B) B
+C) C
+ANS) C
+
+22.Design Pattern in which we separate abstraction and its implementation?
+A) Decorator Pattern
+B) Adapter Pattern
+C) Bridge Pattern
+D) Creational Pattern
+ANS) Bridge Pattern
+
+23.In the Publish-Subscribe messaging model, the subscribers register themselves in a topic and are
+notified when new messages arrive to the topic. Which pattern does most describe this model?
+A) Adapter
+B) Notifier
+C) Observer
+D) State
+ANS) Observer
+
+24.It is known as Action or Transaction and is used to encapsulate a request as an object to support
+rollback,
+logging, or transaction functionality
+A) Chain of Responsibility Pattern
+B) Command Pattern
+C) Observer Pattern
+D) Strategy Pattern
+ANS) Command Pattern
+
+
+25.Iterator Pattern is a type of _______________
+A) Creational Patterns
+B) Behavioral Patterns
+C) Structural Patterns
+ANS) Behavioral Patterns
+
+
+26.What are the consequences of applying the abstract factory pattern?
+A. it will be much easier to introduce new family of products
+B. it makes it easier for a certain family of objects to work together
+C. it makes it easier for the client to deal with tree-structured data
+D. it makes the designed product families exchangeable
+A) A,C
+B) C,D
+C) B,D
+D) D,A
+ANS) B,D
+
+
+
+27.When would you use the Singleton design pattern?
+A. to limit the class instantiation to one object
+B. to provide global access to one instance across the system
+C. to ensure that a certain group of related objects are used together
+D. to abstract steps of construction of complex objects
+A) A
+B) A,B
+C) A,B,C
+D) A,B,D
+ANS) A,B
+
+
+28.Which Design Pattern provides a way to access the elements of an aggregate object sequentially
+without exposing its underlying representation.
+A) Iterator
+B) Command
+C) Observer
+D) Strategy
+ANS) Iterator
+
+
+29.Which design pattern you would you use to decouple the creation procedure of a complex object
+from it's concrete
+instance to be able to apply that procedure on variety of implementations.
+A) Factory builder design pattern
+B) Method Builder design pattern
+C) Builder design pattern
+D) Factory method design pattern
+ANS) Builder design pattern
+
+
+30.Which design pattern you would you use to limit the class instantiation to one object?
+A) Builder design pattern
+B) Factory Method Design Pattern
+C) Prototype design pattern
+D) Singleton design pattern
+ANS) Singleton design pattern
+
+
+31.Which of the following pattern works as a bridge between two incompatible interfaces?
+A - Builder Pattern
+B - Adapter Pattern
+C - Prototype Pattern
+D - Filter Pattern
+A) A
+B) B
+C) C
+D) D
+ANS) B
+
+32.You want to create families of related objects, to be used interchangeably to configure you
+application. What is the most appropriate pattern to use?
+A) Factory
+B) Builder
+C) Abstract Factory
+D) Composite
+ANS) Abstract Factory
+
+33.Which is incorrect about AbstractFactory Pattern
+A. Application should be configured with one of the multiple families of products.
+B. To be compatible, objects should be created as a set.
+C. These are concerned with how to form larger structures by composing classes and objects.
+D. You want to provide a collection of classes, and reveal just their contracts, and relationships,
+not their implementations.
+A) A
+B) B
+C) C
+D) D
+ANS) C
+
+
+34. Which type of driver provides JDBC access via one or more ODBC drivers?
+(a) Type 1 driver
+(b) Type 2 driver
+(c) Type 3 driver
+(d) Type 4 driver
+Ans:a
+
+35. How can you execute DML statements (i.e. insert, delete, update) in the database?
+(a) By making use of the InsertStatement, DeleteStatement or UpdateStatement classes
+(b) By invoking the execute(...) or executeUpdate(...) method of a normal Statement object
+or a sub-interface object
+thereof
+(c) By invoking the executeInsert(...), executeDelete(...) or executeUpdate(...) methods of the
+DataModificationStatement object
+(d) By making use of the execute(...) statement of the DataModificationStatement object
+Ans:b
+
+36. How do you know in your Java program that a SQL warning is generated as a result
+of executing a SQL statement in
+the database?
+(a) You must catch the checked SQLException which is thrown by the method which
+executes the statement
+(b) You must catch the unchecked SQLWarningException which is thrown by the method
+which executes the statement
+(c) You must invoke the getWarnings() method on the Statement object (or a sub interface
+thereof)
+(d) You must query the ResultSet object about possible warnings generated by the database
+Ans:c
+
+37. What is, in terms of JDBC, a DataSource?
+(a) A DataSource is the basic service for managing a set of JDBC drivers
+(b) A DataSource is the Java representation of a physical data source
+(c) A DataSource is a registry point for JNDI-services
+(d) A DataSource is a factory of connections to a physical data source
+Ans:d
+
+38. What is the meaning of ResultSet.TYPE_SCROLL_INSENSITIVE
+(a) This means that the ResultSet is insensitive to scrolling
+(b) This means that the Resultset is sensitive to scrolling, but insensitive to updates, i.e. not
+updateable
+(c) This means that the ResultSet is sensitive to scrolling, but insensitive to changes made
+by others
+(d) The meaning depends on the type of data source, and the type and version of the driver
+you use with this data source
+Ans:c
+
+39. Are ResultSets updateable?
+(a) Yes, but only if you call the method openCursor() on the ResultSet, and if the driver and
+database support this option
+(b) Yes, but only if you indicate a concurrency strategy when executing the statement, and
+if the driver and database support this option
+(c) Yes, but only if the ResultSet is an object of class UpdateableResultSet, and if the driver
+and database support thisoption
+(d) No, ResultSets are never updateable. You must explicitly execute DML statements (i.e.
+insert, delete and update) to change the data in the underlying database
+Ans:b
+
+40. How can you start a database transaction in the database?
+(a) By asking a Transaction object to your Connection, and calling the method begin() on
+it
+(b) By asking a Transaction object to your Connection, and setting the autoCommit
+property of the Transaction to false
+(c) By calling the method beginTransaction() on the Connection object
+(d) By setting the autoCommit property of the Connection to false, and execute a statement
+in the database
+Ans:d
+
+41. What is the meaning of the transaction isolation level
+TRANSACTION_REPEATABLE_READ
+(a) Dirty reads, non-repeatable reads and phantom reads can occur
+(b) Dirty reads are prevented; non-repeatable reads and phantom reads can occur
+(c) Dirty reads and non-repeatable reads are prevented; phantom reads can occur
+(d) Dirty reads, non-repeatable reads and phantom reads are prevented
+Ans:c
+
+42. What statements are correct about positioned updates (i.e. cursor updates) in
+ResultSets? (2
+correct answers)
+[a] Using the cursor technique is currently the only possible way to change the data in the
+current row of a ResultSet
+[b] Insert statements are only supported when using scrollable cursors.
+[c] Only scrollable updateable ResultSets can use this approach to change the data in the
+current row of a ResultSet
+[d] The name of the cursor is specified by the setCursorName(String name) method the
+Statement object.
+Ans:b
+
+43. How can you execute a stored procedure in the database?
+(a) Call method execute() on a CallableStatement object
+(b) Call method executeProcedure() on a Statement object
+(c) Call method execute() on a StoredProcedure object
+(d) Call method run() on a ProcedureCommand object
+Ans:a
+
+44. What happens if you call the method close() on a ResultSet object?
+(a) the method close() does not exist for a ResultSet. Only Connections can be closed.
+(b) the database and JDBC resources are released
+(c) you will get a SQLException, because only Statement objects can close ResultSets
+(d) the ResultSet, together with the Statement which created it and the Connection from
+which the Statement was retrieved, will be closed and release all database and JDBC
+resources
+Ans:b
+
+45. What statements are correct about batched insert and updates? (2 answers)
+[a] To create a batch of insert and update statements, you create an object of type Batch,
+and call the method
+addStatement(String statement) for each statement you want to execute in the batch
+[b] Batch insert and updates are only possible when making use of parameterized queries.
+[c] To do a batched update/insert, you call addBatch(String statement) on a Statement object
+for each statement you want to execute in the batch
+[d] To execute a batched update/insert, you call the executeBatch() method on a Statement
+object
+Ans:c,d
+
+46. What is correct about DDL statements (create, grant,...)?
+(a) DDL statements are treated as normal SQL statements, and are executed by calling the
+execute() method on a Statement (or a sub interface thereof) object
+(b) To execute DDL statements, you have to install additional support files
+(c) DDL statements can not be executed by making use of JDBC, you should use the native
+database tools for this.
+(d) Support for DDL statements will be a feature of a future release of JDBC
+Ans:a
+
+47. The JDBC-ODBC Bridge supports multiple concurrent open statements per
+connection?
+a. True
+b. False
+Ans:a
+
+48. Which of the following allows non repeatable read in JDBC Connection?
+a. TRANSACTION_READ_UNCOMMITTED
+b. TRANSACTION_READ_COMMITTED
+c. TRANSACTION_SERIALIZABLE
+d. TRANSACTION_REPEATABLE_READ
+Ans:d
+
+49. Which of the following statements is false as far as different type of statements is
+concern in JDBC?
+a. Regular Statement
+b. Prepared Statement
+c. Callable Statement
+d. Interim Statement
+Ans:d
+
+50. To execute a stored procedure “totalStock” in a database server, which of the following
+code snippet is used?
+a. Statement stmt = connection.createStatement();stmt.execute("totalStock()");
+b. CallableStatement clbstmnt = con.prepareCall("{call totalStock}");cs.executeQuery();
+c. StoreProcedureStatement
+stmt=connection.createStoreProcedure("totalStock()");spstmt.executeQuery();
+d. PrepareStatement pstmt = connection.prepareStatement("totalStock()");pstmt.execute();
+Ans:b
+
+51. Which driver is efficient and always preferable for using JDBC applications?
+a. Type – 4
+b. Type – 1
+c. Type – 3
+d. Type – 2
+Ans:a
+
+52. JDBC facilitates to store the java objects by using which of the methods of
+PreparedStatement
+setObject () 2. setBlob() 3. setClob()
+a. 1, 2
+b. 1,2,3
+c. 1,3
+d. 2,3
+Ans:b
+
+53. Which statement is static and synchronized in JDBC API?
+a. executeQuery()
+b. executeUpdate()
+c. getConnection()
+d. prepareCall()
+Ans:c
+
+54. The JDBC-ODBC bridge is
+a. Three tiered
+b. Multithreaded
+c. Best for any platform
+d. All of the above
+Ans:b
+
+55. The class java.sql.Timestamp has its super class as
+a. java.sql.Time
+b. java.util.Date
+c. java.util.Time
+d. None of the above
+Ans:b
+
+56. Which of the following methods finds the maximum number of connections that a
+specific driver can obtain?
+a. Database.getMaxConnections
+b. Connection.getMaxConnections
+c. DatabaseMetaData.getMaxConnections
+d. ResultSetMetaData.getMaxConnections
+Ans:c
+
+57. Are prepared statements actually compiled?
+a. Yes, they compiled
+b. No, they are bound by the JDBC driver
+Ans:a
+
+58. When the message “No Suitable Driver” occurs?
+a. When the driver is not registered by Class.forname() method
+b. When the user name, password and the database does not match
+c. When the JDBC database URL passed is not constructed properly
+d. When the type 4 driver is used
+Ans:c
+
+
+59. Which driver is called as thin-driver in JDBC?
+a. Type-4 driver
+b. Type-1 driver
+c. Type-3 driver
+d. Type-2 driver
+Ans:a
+
+60. How many transaction isolation levels are defined in java.sql.Connection interface?
+a. 4
+b. 3
+c. 5
+d. 2
+Ans:c
+
+Ques1)When the message"No suitable driver" occurs?
+a) When the driver is not registered by Class.forname() method
+b) When the user name, password and the database does not match
+c) When the JDBC database URL passed is not constructed properly
+d) When the type 4 driver is used.
+Ans:c
+
+Ques2)Which of the following are needed for loading a database driver in JDBC?
+a)registerDriver() method
+b)Class.forName()
+c)Both A and B
+d)getConnection()
+Ans:c
+
+Ques3)BLOB,CLOB,ARRAY and REF type columns can be updated in?
+a)JDBC 1.0
+b)JDBC 4.0
+c)JDBC 2.0
+d)JDBC 3.0
+Ans:d
+
+Ques4)To execute a stored procedure"Total stock" in a database server which of
+the following is used?
+a)Statement
+b)Callable Statement
+c)Stored Procedure Statement
+d)Prepare Statement
+Ans:b
+
+Ques5)Which of the following is false as far as Type4 driver is concerned?
+a)Type 4 driver is “native protocol, pure java” driver.
+b)Type 4 drivers are 100% Java compatible.
+c) Type 4 drivers uses Socket class to connect to the database.
+d) Type 4 drivers can not be used with Netscape.
+Ans:d
+
+Ques6)Which statement is static and synchronized in JDBC API?
+a)executeQuery()
+b) executeUpdate()
+c) getConnection()
+d) prepareCall()
+Ans:c
+
+Ques7)Which of the following statment is false as far as different type is concern
+in JDBC?
+a)Regular Statement
+b)Prepared Statement
+c)Callable Statement
+d)Interim Statement
+Ans:d
+
+Ques8)All raw data types should be read and uploaded to the database as an
+array of?
+a)byte
+b)int
+c)boolean
+d)char
+Ans:a
+
+Ques9)Which are the new features adding in to the JDBC 4.0 ?
+(a)Auto-loading of JDBC driver class
+(b)Connection management enhancements
+(c)Support for RowId SQL type
+(d)All of the above
+Ans:d
+
+Ques10)Which method is used to perform the DML statement in JDBC?
+a)execute()
+b)executeQuery()
+c)executeUpdate()
+d)executeResult()
+Ans:c
+
+Ques11)What is the disadvantage of Type-4 Native Protocol Driver?
+a)At client side, a separate driver is needed for each database.
+b) Type-4 driver is entirely written in Java
+c) The driver converts JDBC calls into vendor-specific database protocol
+d) It does not support to read MySQL data.
+Ans:a
+
+Ques12)JDBC is a ..................... interface, which means that it is used to invoke
+SQL commands directly?
+A) low-level
+B) middle-level
+C) higher-level
+D) user
+Ans:a
+
+Ques13)Which JDBC driver Type(s) can be used in either applet or servlet code?
+a) Both Type 1 and Type 2
+b) Both Type 1 and Type 3
+c) Both Type 3 and Type 4
+d) Type 4 only
+Ans:c
+
+Ques14)Which JDBC driver Type(s) can you use in a three-tier architecture and if
+the Web server and the DBMS are running on the same machine?
+a) Type 1 only
+b) Type 2 only
+c) Both Type 3 and Type 4
+d) All of Type 1, Type 2, Type 3 and Type 4
+Ans:d
+
+Ques15) ODBC is not appropriate for direct use from java because it uses a ..............
+a) C interface
+b) C# interface
+c) java interface
+d) Both A and C
+Ans:a
+
+Ques16) Which statements about JDBC are true?
+a) JDBC is an API to connect to relational-, object- and XML data sources
+b) JDBC stands for Java DataBase Connectivity
+c) JDBC is an API to access relational databases, spreadsheets and flat files
+d) JDBC is an API to bridge the object-relational mismatch between OO programs and
+relational databases
+Ans:b,c
+
+Ques17) Which type of driver converts JDBC calls into the network protocol used
+by the database management system directly?
+a) Type 1 driver
+b) Type 2 driver
+c) Type 3 driver
+d) Type 4 driver
+Ans:d
+
+Ques18) Which type of Statement can execute parameterized queries?
+a) PreparedStatement
+b) ParameterizedStatement
+c) ParameterizedStatement and CallableStatement
+d) All kinds of Statements (i.e. which implement a sub interface of Statement)
+Ans:a
+
+Ques19) How can you retrieve information from a ResultSet?
+a) By invoking the method get(..., String type) on the ResultSet, where type is the database
+type
+b) By invoking the method get(..., Type type) on the ResultSet,
+where Type is an object which represents a database type.
+c) By invoking the method getValue(...), and cast the result to the desired Java type.
+d) By invoking the special getter methods on the ResultSet: getString(...),
+getBoolean (...), getClob(...),...
+Ans:d
+
+Ques20) What statements are correct about JDBC transactions?
+a) A transaction is a set of successfully executed statements in the database
+b) A transaction is finished when commit() or rollback() is called on the
+Connection object,
+c) A transaction is finished when commit() or rollback() is called on the Transaction object
+d) A transaction is finished when close() is called on the Connection object.
+Ans:b
+
+Ques21) What happens if you call deleteRow() on a ResultSet object?
+a) The row you are positioned on is deleted from the ResultSet, but not from the database.
+b) The row you are positioned on is deleted from the ResultSet and from the
+database.
+c)The result depends on whether the property synchronizeWithDataSource is set to true
+or false
+d) You will get a compile error: the method does not exist because you can not delete
+rows from a ResultSet
+Ans:b
+
+Ques22) The JDBC-ODBC Bridge supports multiple concurrent open statements per
+connection?
+a) True
+b) False
+Ans:b
+
+Ques23) 84. try {
+85. ResourceConnection con = resourceFactory.getConnection();
+86. Results r = con.query("GET INFO FROM CUSTOMER");
+87. info = r.getData();
+88. con.close();
+89. } catch (ResourceException re) {
+90. errorLog.write(re.getMessage());
+91. }
+92. return info;
+Which statement is true if a ResourceException is thrown on line 86?
+a) Line 92 will not execute.
+b) The connection will not be retrieved in line 85.
+c) The resource connection will not be closed on line 88.
+d) The enclosing method will throw an exception to its caller
+Ans:c
+
+Ques24)Which packages contain the JDBC classes?
+a)java.jdbc and javax.jdbc
+b)java.jdbc and java.jdbc.sql
+c) java.sql and javax.sql
+d) java.rdb and javax.rdb
+Ans:c
+
+Ques25)How can you execute DML statements (i.e. insert, delete, update) in
+the database?
+a) By making use of the InsertStatement, DeleteStatement or
+UpdateStatement classes
+b) By invoking the execute(...) or executeUpdate(...) method of a normal
+Statement object or a sub-interface object thereof
+c) By invoking the executeInsert(...), executeDelete(...) or executeUpdate(...) methods of
+the DataModificationStatement object.
+d) By making use of the execute(...) statement of the DataModificationStatement object.
+Ans:b
+
+Ques25)What is, in terms of JDBC, a DataSource?
+a) A DataSource is the basic service for managing a set of JDBC drivers.
+b) A DataSource is the Java representation of a physical data source.
+c) A DataSource is a registry point for JNDI-services.
+d) A DataSource is a factory of connections to a physical data source.
+Ans:d
+
+Ques26)Are prepared statement actually compiled?
+a)Yes,They complied
+b)No,they are bound by JDBC driver.
+Ans:a
+
+Ques27)What is correct about DDL statements (create, grant,...)
+a) DDL statements are treated as normal SQL statements, and are executed
+by calling the execute() method on a Statement (or a sub interface thereof)
+object
+b) To execute DDL statements, you have to install additional support files
+c) DDL statements can not be executed by making use of JDBC, you should use the native
+database tools for this.
+d) Support for DDL statements will be a feature of a future release of JDBC’
+Ans:a
+
+Ques28)Which of the following allows non repeatable read in JDBC Connection?a
+a)TRANSACTION_READ_UNCOMMITTED
+b) TRANSACTION_READ_COMMITTED
+c) TRANSACTION_SERIALIZABLE
+d) TRANSACTION_REPEATABLE_READ
+Ans:d
+
+Ques29)The class java.sql.Timestamp has its super class as?
+a) java.sql.Time
+b) java.util.Date
+c) java.util.Time
+d) None of the above
+Ans:b
+
+Ques30) Which driver is called as Thin-driver in JDBC?
+a)TYPE-4
+b)TYPE-2
+c)TYPE-1
+d)TYPE-3
+Ans:a
+
+
+=================================================================
+
+spring transaction manager 
+
+    video link: 
+        https://www.youtube.com/watch?v=C5eNBrZ0ze8
+
+    https://dzone.com/articles/spring-transaction-management
+
+
+1. Transactions can be described with key properties:-
+a) Atomicity
+b) Consistency
+c) Isolation
+d) All of the mentioned
+
+Answer: d
+Explanation: The concept of transactions can be described with four key properties: atomicity, consistency, isolation, and durability (ACID).
+• Atomicity: A transaction is an atomic operation that consists of a series of actions.
+The atomicity of a transaction ensures that the actions either complete entirely or
+take no effect at all.
+• Consistency: Once all actions of a transaction have completed, the transaction is
+committed. Then your data and resources will be in a consistent state that
+conforms to business rules.
+• Isolation: Because there may be many transactions processing with the same data
+set at the same time, each transaction should be isolated from others to prevent
+data corruption.
+• Durability: Once a transaction has completed, its result should be durable to
+survive any system failure (imagine if the power to your machine was cut right in
+the middle of a transaction commit). Usually, the result of a transaction is
+written to persistent storage.
+
+
+2. To access a database running on the Derby server, you have to add:-
+a) Derby client library
+b) Tomcat client library
+c) All of the mentioned
+d) None of the mentioned
+
+Answer: a
+Explanation: To access a database running on the Derby server, you have to the Derby client library to your CLASSPATH.
+
+
+3. Spring’s transaction support offers a set of technology-independent facilities, including transaction managers.
+a) org.springframework.transaction.PlatformTransactionManager
+b) org.springframework.transaction.support.TransactionTemplate
+c) all of the mentioned
+d) none of the mentioned
+
+Answer: c
+Explanation: Spring’s transaction support offers a set of technology-independent facilities, a transaction template (e.g., org.springframework.transaction.support.TransactionTemplate), and transaction declaration support to simplify your transaction management tasks.
+
+
+4. Spring’s core transaction management abstraction is based on the interface:-
+a) PlatformTransaction
+b) PlatformTransactionManager
+c) TransactionManager
+d) PlatformManager
+
+Answer: b
+Explanation: It encapsulates a set of technology-independent methods for transaction management.
+
+
+5. The PlatformTransactionManager interface provides methods for working with transactions:
+a) getTransaction(TransactionDefinition definition)
+b) commit(TransactionStatus status)
+c) rollback(TransactionStatus status)
+d) all of the mentioned
+
+Answer: d
+Explanation:
+• TransactionStatus getTransaction(TransactionDefinition definition) throws
+TransactionException
+• void commit(TransactionStatus status) throws TransactionException;
+• void rollback(TransactionStatus status) throws TransactionException;
+
+
+6. Spring has several built-in implementations of PlatformTransactionManager interface for use with different transaction management APIs.
+a) True
+b) False
+
+Answer: a
+Explanation:
+• If you have to deal with only a single data source in your application and access it
+with JDBC, DataSourceTransactionManager should meet your needs.
+• If you are using JTA for transaction management on a Java EE application server,
+you should use JtaTransactionManager to look up a transaction from the
+application server. Additionally, JtaTransactionManager is appropriate for
+distributed transactions (transactions that span multiple resources). Note that
+while it’s common to use a JTA transaction manager to integrate the application
+servers’ transaction manager, there’s nothing stopping you from using a stand-
+alone JTA transaction manager such as Atomikos.
+• If you are using an object/relational mapping framework to access a database, you
+should choose a corresponding transaction manager for this framework, such as
+HibernateTransactionManager and JpaTransactionManager.
+
+
+7. A transaction manager is declared in the Spring IoC container as a normal bean.
+a) True
+b) False
+
+Answer: a
+Explanation: For example, the following bean configuration declares a DataSourceTransactionManager instance. It requires the dataSource property to be set so that it can manage transactions for connections made by this data source.
+
+
+8. Method that allows you to start a new transaction (or obtain the currently active transaction).
+a) getTransaction()
+b) commit()
+c) rollback()
+d) all of the mentioned
+
+Answer: a
+Explanation: Spring’s transaction manager provides a technology-independent API that allows you to start a new transaction (or obtain the currently active transaction) by calling the getTransaction() method.
+
+
+9. PlatformTransactionManager is an abstract unit for transaction management.
+a) True
+b) False
+
+Answer: a
+Explanation: Because PlatformTransactionManager is an abstract unit for transaction management, the methods you called for transaction management are guaranteed to be technology independent.
+
+
+10. Method to start a new transaction with that definition:-
+a) getTransaction()
+b) commit()
+c) rollback()
+d) none of the mentioned
+
+Answer: a
+Explanation: Once you have a transaction definition, you can ask the transaction manager to start a new transaction with that definition by calling the getTransaction() method.
+
+
+11. To help you control the overall transaction management process and transaction exception handling.
+a) SpringTransactionTemplate
+b) TransactionTemplate
+c) Transaction
+d) None of the mentioned
+
+Answer: b
+Explanation: Spring also provides a TransactionTemplate to help you control the overall transaction management process and transaction exception handling.
+
+
+12. You just have to encapsulate your code block in a callback class that implements the TransactionCallback interface and pass it to the TransactionTemplate execute method for execution. In this way, you don’t need to repeat the boilerplate transaction management code for this block.
+a) True
+b) False
+
+Answer: a
+Explanation: In this way, you don’t need to repeat the boilerplate transaction management code for this block.
+
+
+13. A TransactionTemplate can accept a transaction callback object that implements:-
+a) TransactionCallback
+b) TransactionCallbackWithoutResult class
+c) All of the mentioned
+d) None of the mentioned
+
+Answer: c
+Explanation: A TransactionTemplate can accept a transaction callback object that implements either the TransactionCallback or an instance of the one implementer of that interface provided by the framework, the TransactionCallbackWithoutResult class.
+
+
+14. Spring (since version 2.0) offers a transaction advice that can be easily configured via the:-
+a) rx:advice
+b) bx:advice
+c) tx:advice
+d) none of the mentioned
+
+Answer: c
+Explanation: This advice can be enabled with the AOP configuration facilities defined in the aop saop schema.
+
+
+15. You can omit the transaction-manager attribute in the element if your transaction manager has the name transactionManager.
+a) True
+b) False
+
+Answer: a
+Explanation: This element will automatically detect a transaction manager with this name. You have to specify a transaction manager only when it has a different name.
+
+====================================================
+
+spring web mvc :
+    video links:
+        https://www.youtube.com/watch?v=BjNhGaZDr0Y
+
+        https://www.journaldev.com/2433/spring-mvc-tutorial
+        https://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/mvc.html
+
+1) Controller Class renders the objects passed by the controller’s handler method.
+a) True
+b) False
+Ans:a
+
+2) Class used to give a class behavior of a Dispatcher Servlet.
+a) AbstractController
+b) Controller
+c) Abstract Class
+d) AbstractAction
+Ans:a
+
+3) All of spring’s various Controller inherit from AbstractControllor?
+a. True
+b. False
+Ans:a
+
+4) WebApplicationContext has more scopes like request, session, global Session to the
+standard Application context (which only provides Singleton and Prototype scopes)
+a. True
+b. False
+Ans:a
+
+5) How the Spring Dispatcher Servlet supports for returning the last-modification-date, as
+specified by the Servlet API?
+A. By implementing the LastModified interface
+B. By implementing the LastSessionModified interface
+C. By implementing the LastDateModified interface
+D. By implementing the LastModifiedDate interface
+Ans:d
+
+6) Which of the among is not a special bean in WebApplicationContext?
+A. Locale resolver
+B. Theme resolver
+C. multipart file
+D. resolver
+E. Handler exception resolver
+F. Handler mappings
+G. None of the above
+Ans:d
+
+7) Design pattern implemented by Dispatcher Servlet.
+a) jsp
+b) tiles
+c) front controller
+d) none of the mentioned
+Ans:c
+
+8) Which of the following is not a view resolver?
+A. BeanNameViewResolver
+B. VelocityViewResolver
+C. JasperReportsViewResolver
+D. UrlBasedViewResolver
+E. ResourceBundleViewResolver
+F. none of above
+Ans:d
+
+9) By default, @RequestMapping gets all the POST Requests.
+A. True
+B. False
+Ans:b
+
+10) Handler method annotation.
+a)@Before
+b) @Controller
+c) @After
+d) @RequestMapping
+Ans:d
+
+11. Method arguments that can be used in handler methods using the @RequestMapping
+annotation.
+a HttpServletRequest or HttpServleResponse
+b @RequestParam
+c @ModelAttribute
+d All of the mentioned
+ans:d
+
+12 .The @RequestMapping annotation can be applied to which levels.
+a class
+b methods
+c both of the above
+d none
+Ans:c
+
+13. Where we use Repository annotation?
+a. test class
+b. dao class
+c. bean class
+d. controller class
+Ans:b
+
+14. Which of the following layers the @Controller annotation is used in?
+a. Service layer.
+b. Presentation layer.
+c. None of these
+d. Business layer.
+Ans:b
+
+15 Which annotation is used to bind a request parameter a variable in method scope?
+a. @ModelAttribute
+b. @PathVariable
+c. @RequestParam
+d. none of the above
+Ans:c
+
+16. Which methods are invoked in controller before @RequestMapping methods in same
+controller?
+a.@RequestParam
+b.@ModelAttribute
+c. all of the above
+d @None of the above
+Ans:b
+
+
+17. Which feature of spring gives us annotation?
+a. Transaction management.
+b. Inversion of control container (dependency injection)
+c. autodetection
+d. Data access framework.
+Ans:c
+
+18. What is the use of ModelAttribute annotation?
+a. injects data objects the model before jsp loads
+b. read data from an existing model assigning it to handler method parameters
+c. both a and b
+d. none of above
+Ans:c
+
+19. Identify which annotation can be used with @Controller?
+a. @RequestMapping
+b. @ModelAttribute
+c. @PathVariable
+Ans:a
+
+20. Which package is used for Controller annotation?
+a. import org.springframework.beans.factory
+b. import org.springframework.stereotype.Controller
+c. import org.stereotype.Controller
+d. import springframework.stereotype.Controller
+Ans:b
+
+21. Beans can be created by which of the following properties?
+a) Scope
+b) Property
+c) Class
+d) It’s own constructor
+Ans:d
+
+22. What will be the output?
+
+public class CreatePro {
+String ProductId;
+public CreatePro(String ProductId) {
+this.ProductId = ProductId;
+}
+
+public static Product creation_Product(String productId) {
+
+System.out.println("Bean Created");
+if ("aaa".equals(productId)) {
+return new Battery("AAA", 2.5);
+} else if ("cdrw".equals(productId)) {
+return new Disc("CD-RW", 1.5);
+}
+}
+}
+<beans ...>
+<bean id="aaa" class="CreatePro"
+factory-method="createProduct">
+<constructor-arg value="aaa" />
+</bean>
+<bean id="cdrw" class="CreatePro"
+factory-method="createProduct">
+<constructor-arg value="cdrw" />
+</bean>
+</beans>
+a) BeanCreationException
+b) Bean Created
+c) ClassPathException
+d) None of the mentioned
+Ans:a
+
+23. A bean can have more than one name using multiple id attributes?
+
+a) True
+b) False
+Ans:a
+
+24. Which one is the default scope of the beans?
+
+a) Prototype
+b) Session
+c) Request
+d) Singleton
+Ans:d
+
+25. Alternate way of initialization method is:-
+a) init-method attribute
+b) afterPropertiesSet
+c) destroy-method attribute
+d) none of the mentioned
+Ans:a
+
+26. Which special type of advice is used to implement an interface?
+a) Introduction
+b) Before
+c) After
+d) AfterSpecial
+Ans:a
+
+27. Attribute used to specify implementation class
+a) no such attribute
+b) defaultImpl
+c) defaultInterface
+d) defaultImplement
+Ans:b
+
+28. How to keep track of the usage of your beans
+a) Calling Count
+b) Last modified date
+c) New Interface to your object
+d) All of the mentioned
+Ans:d
+
+29. Tag used to declare aspects
+
+a) aop:config
+b) aop:auto-proxy
+c) aop:autowire
+d) None of the mentioned
+Ans:a
+
+30. Is this bean configuration metadata correct?
+
+<beans ...>
+bean id="com.shop.Product.AAA"
+class="org.springframework.beans.factory.config.
+FieldRetrievingFactoryBean" /
+bean id="com.shop.Product.CDRW"
+class="org.springframework.beans.factory.config.
+FieldRetrievingFactoryBean" /
+</beans>
+a) Yes
+b) No
+Ans:a
+
+31. What is used to dispatch requests for web application?
+a)ViewHandler
+b)ViewResolver
+c)DispatcherServlet
+d)None Of the above
+Ans:c
+
+32. Class used to give a class behavior of a Dispatcher Servlet.
+a) AbstractController
+b) Controller
+c) Abstract Class
+d) AbstractAction
+Ans:a
+
+33. Design pattern implemented by Dispatcher Servlet.
+a) jsp
+b) tiles
+c) front controller
+d) none of the mentioned
+Ans:c
+
+34. Interface for Dispatcher Servlet to auto detect view resolver beans.
+a) localeResolver
+b) tiles
+c) ViewResolver
+d) none of the mentioned
+Ans:c
+
+35. Views that can’t be resolved by InternalResourceViewResolver.
+a) redirect
+b) redirect:prefix
+c) redirect:suffix
+d) all of the mentioned
+Ans:a
+
+36. Which class or interface is not used while configuring Dispatcher Servlet
+programmatically?
+a)WebAppInitializer
+b)AbstractDispatcherServletInitializer
+c)SpringServletContainerInitializer
+d)AbstractAnnotationConfigDispatcherServletInitializer
+Ans:c
+
+37. Which of the following acts as the front controller in Spring MVC Framework?
+a)Spring Bean Classes
+b)DispatcherServlet Class
+c)Spring Views
+d)SpringController Class
+Ans:b
+
+38. Which Initialization parameter is not used in Dispatcher Servlet?
+a)contextClass
+b)contextConfig
+c)contextConfigLocation
+d)namespace
+Ans:b
+
+39. By default,when the DispatcherServlet class is loaded,it loads the_______ from the
+XML file.
+a)SpringApplicationContext
+b)SpringDispatcher
+c) SpringController
+d) ApplicationContext
+Ans:a
+
+40. Which bean does not support Dispatcher Servlet?
+a)HandlerMapping
+b)ViewResolver
+c)HandlerExceptionResolver
+d)HandlerResolver
+Ans:d
+
+41. Interface for Dispatcher Servlet to auto detect view resolver beans.
+a) localeResolver
+b) tiles
+c) ViewResolver
+d) none of the mentioned
+Ans:c
+
+42. ViewResolver which maps each view name tol an application’s directory.
+a) InternalViewResolver
+b) InternalResourceViewResolver
+c) InternalResolver
+d) None of the mentioned
+Ans:b
+
+43. InternalResourceViewResolver resolves view names into view objects of type.
+a) JstlView
+b) Jst Library
+c) View
+d) None of the mentioned
+Ans:a
+
+44. By default, XmlViewResolver loads view beans from /WEB-INF/views.xml which is
+final.
+a) True
+b) False
+Ans:b
+
+45. View beans from a resource bundle is loaded by.
+a) ResourceBundleViewResolver
+b) ResourceBundleView
+c) ResourceViewResolver
+d) None of the mentioned
+Ans:a
+
+46. Views that can’t be resolved by InternalResourceViewResolver.
+a) redirect
+b) redirect:prefix
+c) redirect:suffix
+d) all of the mentioned
+Ans:a
+
+47. Inspection of header is done by which of the following.
+a) InternalViewResolver
+b) ContentNegotiatingViewResolver
+c) ContentNegotiating
+d) InternalResolver
+Ans:b
+
+48. ContentNegotiatingViewResolver resolver configuration sets up the resolver to have the
+highest priority among all resolvers.
+a) True
+b) False
+Ans:a
+
+49. The ContentNegotiatingViewResolver resolver first determines the media type for a
+request based on which of the following criteria?
+a) It checks a request path extension
+b) If a request path has an extension but no match can be found in the default mediaTypes
+section of the ContentNegotiatingViewResolver bean
+c) If no extension is present in a request path, the HTTP Accept header of the request is used
+d) All of the mentioned
+Ans:d
+
+50. To configure the exception mappings in the web application context.
+a) SimpleMappingExceptionResolver
+b) ExceptionResolver
+c) ExceptionViewResolver
+d) None of the mentioned
+Ans:a
+
+51. Annotation for Controller Class.
+a) @Before
+b) @Controller
+c) @After
+d) @Exception
+Ans:b
+
+52. Controller Class renders the objects passed by the controller’s handler method.
+a) True
+b) False
+Ans:a
+
+53. import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.servlet.ModelAndView;
+
+import org.springframework.web.servlet.mvc.AbstractController;
+public class BigController extends AbstractController
+{
+@Override
+protected ModelAndView handleRequestInternal(HttpServletRequest
+request, HttpServletResponse response) throws Exception
+
+{
+
+System.out.println("You're big!");
+return new ModelAndView("big");
+}
+}
+This above code creates a single-action controller with configurations regarding
+supported
+methods, session and caching can be specified in the bean declaration of the controller.
+<bean name="/big" class="net.codejava.spring.BigController"
+<property name="supportedMethods" value="POST"/>
+</bean>
+This configuration supports which method that is supported by this controller handler
+method
+a) Only GET method
+b) Only POST method
+c) Both a and b
+Ans:b
+
+54. After Controller has finished handling a render request, it returns:-
+a) model name
+b) view name
+c) view object
+d) all of the mentioned
+Ans:d
+
+55. Method arguments that can be used in handler methods using the @RequestMapping
+annotation.
+a) HttpServletRequest or HttpServleResponse
+b) @RequestParam
+c) @ModelAttribute
+d) All of the mentioned
+Ans:d
+
+56. The @RequestMapping annotation can be applied to the class level only.
+a) True
+b) False
+Ans:b
+
+57. By default, @RequestMapping gets all the POST Requests.
+a) True
+b) False
+Ans:b
+
+58. To configure the exception mappings in the web application context.
+a) ExceptionResolver
+b) ExceptionViewResolver
+c) SimpleMappingExceptionResolver
+d) None of the mentioned
+Ans:c
+
+59. ___________is a specific type of component, used in MVC applications and mostly
+used with RequestMapping annotation.
+a) @Controller
+b) @Component
+c) @Repository
+d) @Service
+Ans:a
+
+60. As per Spring 3.O doc's has _____ controllers are in Spring MVC
+a) 2
+b) 10
+c) 4
+d) 20
+Ans:d
+
+61. Which handler to use, when this handler mapping does not result in a matching handler.
+a. default Handler
+b. HandlerExecutionChain
+c. DispatcherServlet
+d.BeanNameURLHandlerMapping
+Ans:a
+
+62. Handler Mapping is ___________
+a.an interface that defines a mapping between components
+b.an interface that defines a mapping between requests and handler objects.
+c.an interface that defines a mapping between responses.
+d.an interface that defines a mapping between servlets.
+Ans:b
+
+63. BeanNameUrlHandlerMapping maps request URLs to
+a. beans with the different name.
+b. ​beans with the same name.
+c. controller .
+d. component.
+Ans:b
+
+64. Defining a bean for BeanNameUrlHandlerMapping is not required
+a. true
+b. false
+Ans:a
+
+65. SimpleUrlHandlerMapping
+a. allows for direct and declarative mapping between either bean instances and
+URLs or between bean names and URLs.
+b. Does not allow for direct and declarative mapping between bean instances and
+URLs but allows between bean names and URLs.
+c. allows for direct and declarative mapping between bean instances and URLs but
+not between bean names and URLs.
+d. Does not allow for direct and declarative mapping bean instances and URLs or
+between bean names and URLs.
+Ans:a
+
+66. To get the control over which mapping is used, the priorities are set using
+a. constructor .
+b. getOrder(int order) method.
+c. setOrder(int order) method
+d. None
+Ans:c
+
+67. A handler will always be wrapped in a __________ instance
+a.Handler Mapping
+b.BeanNameURLHandlerMapping
+c. RequestMappingURLHandlerMapping
+d.​ ​HandlerExecutionChain
+Ans:d​
+
+68. HandlerExecutionChain throws
+a. java.io.*
+b.java.lang.object
+c.Java.util.*;
+d. java.lang.Exception
+Ans:d
+
+69. If Spring can’t found handler mapping, the DispatcherServlet will creates
+a _____________ automatically.
+a. RequestMappingURLHandlerMapping
+b.HandlerExecutionChain
+c.​ BeanNameUrlHandlerMapping
+d. DispatcherServlet.
+Ans:c
+
+70.Handler Mapping is an interface
+a. true
+b.false
+Ans:a
+
+===========================================================================
+spring transaction 
+
+Transaction Management and Declarative Transaction Management
+
+
+
+1.which of the following defines the transaction strategy ?
+
+a)org.springframework.transaction.PlatformTransactionManager
+b)org.springframework.transaction.transactionsystemexception
+c)org.springframework.transaction.annotation.transactional
+d)org.springframework.transaction.annotation.transactional jar
+1-a
+
+2.Transactions can be described with key properties ?
+a) Atomicity
+b) Consistency
+c) Isolation
+d) All of the mentioned
+2-d
+
+3.Spring’s transaction support offers a set of technology-independent facilities, including transaction managers ?
+a) org.springframework.transaction.PlatformTransactionManager
+b) org.springframework.transaction.support.TransactionTemplate
+c) all of the mentioned
+d) none of the mentioned
+3-c
+
+4.Spring has several built-in implementations of PlatformTransactionManager interface for use with different transaction management APIs.
+a) True
+b) False
+4-a
+
+5.Method that allows you to start a new transaction (or obtain the currently active transaction)
+a) getTransaction()
+b) commit()
+c) rollback()
+d) all of the mentioned
+5-a
+
+6. A TransactionTemplate can accept a transaction callback object that implements ?
+a) TransactionCallback
+b) TransactionCallbackWithoutResult class
+c) All of the mentioned
+d) None of the mentioned
+6-c
+
+7.You can omit the transaction-manager attribute in the element if your transaction manager has the name transactionManager ?
+a) True
+b) False
+7-a
+
+8.To help you control the overall transaction management process and transaction exception handling.
+a) SpringTransactionTemplate
+b) TransactionTemplate
+c) Transaction
+d) None of the mentioned
+8-b
+
+9.A transaction manager is declared in the Spring IoC container as a normal bean ?
+a) True
+b) False
+9-a

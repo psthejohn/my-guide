@@ -1,0 +1,22 @@
+follow the instructions to setup the minishift in your local system:
+
+
+	wget https://github.com/minishift/minishift/releases/download/v1.33.0/minishift-1.33.0-linux-amd64.tgz
+
+	tar xvzf minishift-1.33.0-linux-amd64.tgz
+
+	cd minishift-1.33.0-linux-amd64.tgz
+
+	sudo mv minishift /usr/local/bin
+
+	minishift config set --global vm-driver virtualbox
+
+	misishift start
+
+==========================================================
+
+use helm to download any tool in kubernates
+
+
+
+
