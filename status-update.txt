@@ -11,3 +11,104 @@
     
     completed the final assessment contents of spring web mvc for ibm wave 4
     completed the performance testing of parallel code executions in docker containers 
+    started with elastic search exploration and implementations
+
+25 - april 
+    done with elastic search poc 
+    complete the code examples for spring-jdbc, transactions and mvc.
+    took session for ibm wave 4 for all these 3
+
+26 - april
+    started with the jenkins-x in aws 
+    explored aws basic guide
+    stuck with the VM creation , 4 hrs of time was required for first time validations
+    asked kamal for help , issue resolved around 12.55
+    sagar told to directly use the jx directly to create cluster not to use any ec2 instance
+
+27 - sat 
+28 - sun
+
+29-april 
+    tried the setup 4-5 times but not able to make it run , 
+    first the access denied issue to create repository ( solved by kamal )
+    then despite the successful setup , pipelines were not working 
+
+30 - april 
+    after a lot of digging find out issue with the jenkins serverless installation 
+    switched to jenkins ci/cd 
+    everything is working fine , all pipelines are up and cluster is working as expected 
+    tested for the spring - boot application
+    testing for the nodejs application also done successfully  
+    curr-status: demo around 3.30 with sagar 
+    demo done successfully
+
+1 may : holiday
+
+2 may :
+    trying to configure the jx so that each user can have their own access to clusters
+    reading about the kubernates basics
+
+3 may :
+    trying to deploy a sample application direclty in aws kubernate cluster with out using the jx
+
+4 may -sat
+5 may -sun
+
+6 may:
+    deployed the sample app in kubernates manually 
+
+7 may :
+    trying to deploy mashup in kubernates
+    deployment done
+    but lots of issues are there that needed to be fixed , services are not properly communicating with each other
+    : need to discuss with sagar few things
+
+8 may :
+    mashup code changes are needed to be done after discussing with sagar . (discussion done )
+    in afternoon started with openshift ( as we are going to use this for immersive) 
+    deployment of demo spring app done in openshift
+
+9 may :
+    starting with mashup code changes
+    removed other microservices as of now needed only 2 , questionService and executionService along with frontend
+ 
+10 may :
+    most of the changes are done , some pending ones i m working on 
+
+11 may sat
+12 may sun 
+	
+
+31st may :
+	mashup release one done after all changes 
+		multi user support 
+		gitlab clone support 
+		gitlab code push support 
+		branch cloning support
+
+
+15 jun -(till) completely in cloud native , settings and mashup deployment 
+
+17-jun :
+    handling immersive ibm cloud native wave 7 and 8
+
+25 july : 
+    mockito testing session , tasks review pending
+
+
+
+==============================================================================================
+
+
+
+=================================================================================================
+
+git lab 
+	App id : 551a7844492296c82e88603e661b6b72082f92fab7bae70955a062e340e49652
+	secret : 2a989928afe7c5437e2e8c527daa8284af15f06eb1116986afa59cc67871098c
+	url    : http://172.23.239.246:32676/
+
+
+    
+
+

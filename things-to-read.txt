@@ -1,2 +1,5 @@
-hash code and equals
-comparator vs comparable
+difference between delpoyment and delpoymentconfig
+
+diff between jdk 7,8,9,10 & 11
+
+

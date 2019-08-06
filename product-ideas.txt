@@ -8,3 +8,19 @@ DashBoard For Stackroute
 Bike/car rental trackers
 Voting appllication for internal use
 
+1. AI bot for daily use 
+3. Workflow management system for Stackroute
+4. predicting sentiments from data monitoring
+
+
+
+
+5. 2nd hand product aution plateform
+2  Quality management system for team of a product
+6. Stock market trading loss preventor (Twitter Streaming vs Twitter Hose)
+7. Crowdfunding platform
+8. farm to door agricultural management plateform 
+9. website crawler and validator
+10. json ld based app  
+11. product ratings based on the diff diff app ratings (flipcart , amazon , snapdeal etc)
+12. 

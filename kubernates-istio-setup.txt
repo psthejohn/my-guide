@@ -1,0 +1,14 @@
+install 
+    minikube
+    virtual box
+
+Start minikube with 16384 MB of memory and 4 CPUs.
+    minikube start --memory=16384 --cpus=4 --kubernetes-version=v1.15.0
+
+        find out the kubernetes version installed by 
+            kubectl version 
+        and replace version in above command
+
+to verify the minikube memory usage 
+    minikube ssh
+    top 

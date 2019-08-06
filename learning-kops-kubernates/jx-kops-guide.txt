@@ -1,0 +1,245 @@
+main link :
+https://kubernetes.io/docs/setup/custom-cloud/kops/
+complete docs:
+https://github.com/kubernetes/kops/blob/master/docs/README.md
+
+https://github.com/kubernetes/kops/blob/master/docs/aws.md
+https://github.com/kubernetes/kops/blob/master/docs/cluster_spec.md
+
+kubectl cheatsheet :
+    https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+commands docs :
+    https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward
+
+ingress -nginx :
+    https://github.com/kubernetes/kops/tree/master/addons/ingress-nginx
+
+accessing the services ffrom outside :
+    https://www.edureka.co/blog/kubernetes-ingress-controller-nginx
+
+
+when you are done installing the jx in your system 
+by deafult jx will install the kubectl , kops etc
+
+we will use kops to direclty access the aws kubernates cluster to get better understanding of the kubernates
+    first check the configurations of aws 
+        aws configure
+    to get the regions avaibility :
+        aws ec2 describe-regions
+    but you cant give this as the zones , you need complete zone name that you can get with 
+        aws ec2 describe-availability-zones --region ap-southeast-1
+    i got ap-southeast-1a
+
+    now create the kubernate cluster
+        kops create cluster --name=myfirstcluster.k8s.local --state=s3://kops-state-jx --zones ap-southeast-1a --node-count=3 --node-size=t2.micro --master-size=t2.micro --dns-zone=c2.stackroute.io
+
+        kops create cluster --name=myfirstcluster.k8s.local --state=s3://kops-state-jx --zones ap-southeast-1a --node-count=3 --node-size=t2.medium --master-size=t2.micro --dns-zone=c2.stackroute.io
+
+    make sure you have a ssh public key generated prior to creating the cluster
+
+Assigned CIDR 172.20.32.0/19 to subnet ap-southeast-1a
+
+Suggestions:
+ * list clusters with: kops get cluster
+ * edit this cluster with: kops edit cluster myfirstcluster.k8s.local
+ * edit your node instance group: kops edit ig --name=myfirstcluster.k8s.local nodes
+ * edit your master instance group: kops edit ig --name=myfirstcluster.k8s.local master-ap-southeast-1a
+
+Finally configure your cluster with: 
+    kops update cluster myfirstcluster.k8s.local --yes
+
+Suggestions:
+ * validate cluster: kops validate cluster
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to the master: ssh -i ~/.ssh/id_rsa admin@api.myfirstcluster.k8s.local
+ * the admin user is specific to Debian. If not using Debian please use the appropriate user based on your OS.
+ * read about installing addons at: https://github.com/kubernetes/kops/blob/master/docs/addons.md.
+
+NOTE :
+    kops validate cluster will take time till the nodes are not ready and have joined the master.
+    by that time you ll get validation error. once everything is up , errors should be gone
+
+verify the cluster:
+    kubectl cluster-info
+
+Delete the Cluster:
+    kops delete cluster --name ${NAME}
+
+    when you are sure you want to delete the cluster issue the command with 
+        kops delete cluster --name ${NAME} --yes
+    
+Details about the cluster:
+    kubectl config view
+
+========================================================
+dont use this part
+========================================================
+after pushing a demo image to docker hub 
+we pushed that image to kubernate cluster via:
+    kubectl run demo-spring-app --image=ashu1019/demo-spring-app-image --port=8080
+
+    verify the deployment :
+        kubectl get deployment
+    
+    and view the pod status to check that it is ready:
+        kubectl get pods
+
+    view the replicaset status using:
+        kubectl get rs
+
+    we can see app is running and for logs we can do :
+        kubectl logs "podName"
+
+    but still we are not able to connect from our local system to this running app ,
+    thats bcz by default port is not exposed to outside world , and here services comes in play 
+        kubectl expose deployment demo-spring-app --type="NodePort"
+    we can give the port also , if we will not give kubernates automatically assign once
+        kubectl get svc 
+    it will give you the list of all the services running
+
+    to get info abt a specific service type 
+        kubectl describe svc demo-spring-app
+
+=============================================================
+
+    after pushing an image to docker hub :
+    to check out the deployment config :
+        kubectl run --image="repository name with tag" "name of the pod" --dry-run -o "format "
+        eg
+        kubectl run --image=ashu1019/demo-spring-app-image:latest demo-app --dry-run -o yaml
+
+    to write out the config in a file :
+        kubectl run --image=ashu1019/demo-spring-app-image:latest demo-app --dry-run -o yaml >> demo-spring-app-deployment.yaml
+
+    to create the deployment :
+        kubectl create -f demo-spring-app-deployment.yaml
+
+    to verify deployment:
+        kubectl get deployment
+    
+    and view the pod status to check that it is ready:
+        kubectl get pods
+
+    view the replicaset status using:
+        kubectl get rs
+
+    to get info abt the pods 
+        kubectl describe pods "Podname"
+
+    to get the logs of a pod :
+        kubectl logs "pod name"
+
+    to delete a deployment:
+        kubectl delete deployment "name of the deployment"
+    
+    to delete the pods:
+        kubectl delete pods "name of the pod"
+
+    Diff between deployment config and service:
+    
+    with deployment config we can say we need 5-10 instances of following pod and it will provide us the same
+
+    with services we can create an internal route to these pods, 
+    without a service we can not connect to a pod.
+
+    to create /expose a service
+        kubectl expose "type" "name of the deployment" --port "port number"
+    
+    to just output it on the console :
+        kubectl expose deployment demo-app --type NodePort --port 8080 --dry-run -o yaml
+
+    to write in the same file :
+        kubectl expose deployment demo-app --type NodePort --port 8080 --dry-run -o yaml >> demo-spring-app-deployment.yaml 
+
+    with this we will get the updated yaml file .
+    now delete the old deployment 
+        kubectl delete deployment demo-app
+    and then run this file again with 
+        kubectl create -f demo-spring-app-deployment.yaml
+    
+    it will create both the deployment and services
+    but it will not expose the service , so we can not access it 
+
+    NOTE: with this mechanism we can not access the service outside the cluster as we are using the NodePort
+
+    Display information about the Service:
+        kubectl describe services demo-app
+    
+    to delete a service :
+        kubectl delete services demo-app
+
+    but if we want to expose this service over the inernet then
+    we have three options :
+        1. port-forwarding 
+        2. NodePort
+        2. services
+        3. ingress controllers
+
+    lets see port forwarding first:
+        kubectl port-forward demo-app-58bd98c9ff-c66dq 8080:8080
+    or 
+        kubectl port-forward deployment/demo-app 8080:8080
+    
+    all the connections made to local port 8080 will be forwarded to pod that is running the ms
+
+    Note : this is just for testing purpose (sometimes your backend services testing ) and not recommended for longer run 
+
+    NodePort:
+        we can also route external traffic to the pods via NodePort:
+           kubctl expose deployment demo-spring-app --type NodePort --port 8080
+        
+        now we can access the pod from outside via 
+        node-ip:port
+        
+    Services :
+        Create a service for an deployment, which serves on port 8080 and connects to the containers on port 8080
+            kubectl expose deployment demo-app --port=8080 --target-port=8080 --name=demo-app-1 --type=LoadBalancer
+
+        now
+            kubectl get services
+        you ll see the service of type load balancer and its external ip and port , with it you can connect to the app running in pod.
+
+    Now , lets see ingress controller:
+        this is by default needed for any service provider:
+        kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
+
+        then provider specific L4 setting:
+            kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/aws/service-l4.yaml
+            kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/aws/patch-configmap-l4.yaml
+        
+    verify the installtion :
+        kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx --watch
+    
+    verify the installed version :
+        POD_NAMESPACE=ingress-nginx
+        POD_NAME=$(kubectl get pods -n $POD_NAMESPACE -l app.kubernetes.io/name=ingress-nginx -o jsonpath='{.items[0].metadata.name}')
+        kubectl exec -it $POD_NAME -n $POD_NAMESPACE -- /nginx-ingress-controller --version
+    
+
+    we will have to create another resource called ingress.yml (we can do it in same yaml file )
+        apiVersion: extensions/v1beta1
+        kind: Ingress
+        metadata:
+        name: test-ingress
+        spec:
+        backend:
+            serviceName: demo-app
+            servicePort: 8080
+
+    then , just type
+        kubectl apply -f demo-ingress.yaml 
+    
+    verify the ingress with :
+        kubectl get ingress 
+
+    then with the address you can connect to the back end servive
+++++++++++++++++++++++++++++++++++++
+
+to get the info along with ip address of the pod running the microservice
+    kubectl get pods --output=wide
+
+Get the public IP address of one of your nodes that is running a Hello World pod. 
+How you get this address depends on how you set up your cluster. For example, if you are using Minikube, you can see the node address by running 
+    kubectl cluster-info
+

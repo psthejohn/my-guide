@@ -1,0 +1,53 @@
+nfs - network file system
+    used to share files over network of one system (system A) to another (system B )over same network
+
+nfs server :
+    1. required packages
+    2. configuration file
+            /etc/exports 
+    3. services 
+            a. nfs 
+            b. nfs lock 
+            c. portmap
+
+now to start with nfs :
+    create a new directory in System A 
+        mkdir /projects
+        cd /projects 
+        cat > samplecode
+            skdhfkshd   lsdjfjsjd   sldjfksjdl
+
+    now this file we have to access from System B
+
+    to find nfs is installed or not 
+        rpm -qa  nfs*
+
+    mount some directory    
+        mount /dev/hdc /media/
+        cd /media/Server 
+
+    packages to be installed 
+        nfs-utils
+        nfs-utils-lib
+        nfs-utils-lib-devel
+
+    after installing the required packages we have to look for the configuration files
+        vim /etc/exports
+
+        by default empty file will be there
+        enter whatever directory you want to share 
+            /project    * (rw,sync)
+        
+    now start the services 
+        sudo service nfs start 
+        sudo service nfslock start
+        sudo service portmap start 
+
+    on System B we can see the mount by 
+        showmount -e "ip address of the server "
+        mkdir /nfs
+        mount "ip address of server":/project /nfs 
+        cd /nfs 
+        ls 
+            and you ll be able to see all the files here        
+        

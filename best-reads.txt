@@ -1,54 +1,8 @@
 https://httpstatuses.com/
 
-
-In simple words, each major number (200, 400, 500, etc.) is a CATEGORY. You can "refine" the error code by choosing a specific error within the "category".
-
-1×× Informational
-
-2×× Success
-
-3×× Redirection
-
-4×× Client Error * 400 Bad Request * 401 Unauthorized ... * 405 Method Not Allowed ...
-
-5×× Server Error * 500 Internal Server Error * 501 Not Implemented * 502 Bad Gateway ...
-
-The "official" list of HTTP error codes is RFC 7231:
-
 https://tools.ietf.org/html/rfc7231
 
 
 ===============================================================
 
-writing a controller class with exceptions:
-
-// here problem is to get the appropriate http status code from the client 
-
-@PostMapping(value = {"", "/"})
-public ResponseEntity<Response> create(@RequestBody StudioDto studioDto,
-        ServletRequest servletRequest, ServletResponse servletResponse) {
-
-    Response response = new Response();
-
-    try {
-        studioService.createStudio(studioDto);
-        response.setMessage("The studio was create");
-        response.setStatusCode(HttpServletResponse.SC_CREATED);
-
-    } catch (Exception e) {
-        response.setMessage("Op we have a little problem");
-        response.setErrorMessage(e.getMessage());
-
-        //Which one
-        //this one 5xx
-        response.setStatusCode(500);
-        //Or this one 4xx
-        response.setStatusCode(409);
-    }
-
-    return new ResponseEntity(response, response.getHttpStatus());
-}
-
-
-Solution will be in this case:
 

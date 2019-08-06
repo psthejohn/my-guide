@@ -1,0 +1,79 @@
+to find a context 
+    jx context
+to delete a context 
+    jx delete contexts aws1.cluster.k8s.local
+
+to delete an aws vpc 
+    jx delete aws --vpc-id "vpc-key"
+
+jx commands:
+    to get all applications running in any environment with their public urls:
+        jx get applications
+
+    to get all environment:
+        jx get env 
+    to get all build pipelines
+        jx get pipelines
+    
+    to get the jenkins console:
+        jx open jenkins
+    
+Watch pipeline activity via:         jx get activity -f demo-nodejs-app -w
+Browse the pipeline log via:        jx get build logs ashu1019singh/demo-nodejs-app/master
+Open the Jenkins console via       jx console
+You can list the pipelines via:      jx get pipelines
+When the pipeline is complete:    jx get applications
+
+to run  a language specific application we need tools of that language 
+    for ex: if we want to run node app , we need nodejs , npm etc 
+    what we can do we can install jx-tools in vscode that provides us the pods , 
+    these pods contain all the language specific tools 
+    for ex this is a build docker pod which contains all the support tools , eg node pod , maven pod etc
+
+to manually promote a version of app to production:
+    jx promote --app myapp --version 1.2.3 --env production
+
+
+find the logs from kubernates cluster
+using ssh give access to team members
+
+============================
+logs of the create cluster command:
+
+To work more easily with kops on the command line you may wish to run the following: 
+    export KOPS_STATE_STORE=s3://kops-state-043537518696-a2f436bd-6c95-11e9-b3f2-c85b76f3a6e5
+
+creating a cluster command:
+    kops create cluster --name aws1.cluster.k8s.local --node-count 1 --authorization RBAC --zones ap-southeast-1a --yes --state s3://kops-state-043537518696-a2f436bd-6c95-11e9-b3f2-c85b76f3a6e5
+
+kops has set your kubectl context to aws1.cluster.k8s.local
+
+Cluster is starting.  It should be ready in a few minutes.
+
+    Suggestions:
+    * validate cluster: kops validate cluster
+    * list nodes: kubectl get nodes --show-labels
+    * ssh to the master: ssh -i ~/.ssh/id_rsa admin@api.aws1.cluster.k8s.local
+    * the admin user is specific to Debian. If not using Debian please use the appropriate user based on your OS.
+    * read about installing addons at: https://github.com/kubernetes/kops/blob/master/docs/addons.md.
+
+Loaded Cluster JSON: 
+{"kind":"Cluster","apiVersion":"kops/v1alpha2","metadata":{"name":"aws1.cluster.k8s.local","creationTimestamp":"2019-05-02T04:49:22Z"},"spec":{"channel":"stable","configBase":"s3://kops-state-043537518696-a2f436bd-6c95-11e9-b3f2-c85b76f3a6e5/aws1.cluster.k8s.local","cloudProvider":"aws","kubernetesVersion":"1.11.9","subnets":[{"name":"ap-southeast-1a","zone":"ap-southeast-1a","cidr":"172.20.32.0/19","type":"Public"}],"masterPublicName":"api.aws1.cluster.k8s.local","networkCIDR":"172.20.0.0/16","topology":{"masters":"public","nodes":"public","dns":{"type":"Public"}},"nonMasqueradeCIDR":"100.64.0.0/10","sshAccess":["0.0.0.0/0"],"kubernetesApiAccess":["0.0.0.0/0"],"etcdClusters":[{"name":"main","etcdMembers":[{"name":"a","instanceGroup":"master-ap-southeast-1a"}]},{"name":"events","etcdMembers":[{"name":"a","instanceGroup":"master-ap-southeast-1a"}]}],"kubelet":{"anonymousAuth":false},"networking":{"kubenet":{}},"api":{"loadBalancer":{"type":"Public"}},"authorization":{"rbac":{}},"iam":{"legacy":false,"allowContainerRegistry":true}}}
+new json: {"apiVersion":"kops/v1alpha2","kind":"Cluster","metadata":{"creationTimestamp":"2019-05-02T04:49:22Z","name":"aws1.cluster.k8s.local"},"spec":{"additionalPolicies":{"node":"[\n      {\n        \"Effect\": \"Allow\",\n        \"Action\": [\"ecr:InitiateLayerUpload\", \"ecr:UploadLayerPart\",\"ecr:CompleteLayerUpload\",\"ecr:PutImage\"],\n        \"Resource\": [\"*\"]\n      }\n    ]"},"api":{"loadBalancer":{"type":"Public"}},"authorization":{"rbac":{}},"channel":"stable","cloudProvider":"aws","configBase":"s3://kops-state-043537518696-a2f436bd-6c95-11e9-b3f2-c85b76f3a6e5/aws1.cluster.k8s.local","docker":{"insecureRegistry":"100.64.0.0/10"},"etcdClusters":[{"etcdMembers":[{"instanceGroup":"master-ap-southeast-1a","name":"a"}],"name":"main"},{"etcdMembers":[{"instanceGroup":"master-ap-southeast-1a","name":"a"}],"name":"events"}],"iam":{"allowContainerRegistry":true,"legacy":false},"kubelet":{"anonymousAuth":false},"kubernetesApiAccess":["0.0.0.0/0"],"kubernetesVersion":"1.11.9","masterPublicName":"api.aws1.cluster.k8s.local","networkCIDR":"172.20.0.0/16","networking":{"kubenet":{}},"nonMasqueradeCIDR":"100.64.0.0/10","sshAccess":["0.0.0.0/0"],"subnets":[{"cidr":"172.20.32.0/19","name":"ap-southeast-1a","type":"Public","zone":"ap-southeast-1a"}],"topology":{"dns":{"type":"Public"},"masters":"public","nodes":"public"}}}
+
+Updating Cluster configuration to enable insecure Docker registries 100.64.0.0/10
+
+running command: kops replace -f /tmp/kops-ig-json-460870818 --state s3://kops-state-043537518696-a2f436bd-6c95-11e9-b3f2-c85b76f3a6e5
+
+Updating the cluster
+r
+unning command: kops update cluster --yes --state s3://kops-state-043537518696-a2f436bd-6c95-11e9-b3f2-c85b76f3a6e5
+
+Using cluster from kubectl context: aws1.cluster.k8s.local
+
+Setting the dev namespace to: jx
+Namespace jx created 
+
+Generating Chart Template 'template --name jxing --namespace kube-system /tmp/helm-template-workdir-165403894/jxing/chartFiles/nginx-ingress --output-dir /tmp/helm-template-workdir-165403894/jxing/output --debug --set rbac.create=true --set controller.extraArgs.publish-service=kube-system/jxing-nginx-ingress-controller --values /tmp/ing-values-608529817'
+
+custom dns :    c2.stackroute.io

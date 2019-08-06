@@ -1,0 +1,24 @@
+
+19004194000 sbi card block
+
+https://hangouts.google.com/call/fixiOUDF34fB_iLARW06AEEM
+
+poc :
+1.error handling angular poc
+2 pipe n map
+
+Things to do :
+
+Problem exercises immersive
+
+mockito session 
+spring boot quiz 
+docker session
+istio setup 
+execution-environment seperation
+
+
+	
+
+
+
